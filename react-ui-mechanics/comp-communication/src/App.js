@@ -22,7 +22,6 @@ class App extends Component {
     render() {
 
         const {year} = this.state;
-
         return (
             <div className="App">
                 <FooView year={year}/>
