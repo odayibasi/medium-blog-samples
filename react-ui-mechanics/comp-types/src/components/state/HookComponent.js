@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-function HookComponent() {
+export function HookComponent() {
 
 
-    const [age, setAge] = useState(0);
+    const [age, setAge] = useState(30);
 
     return (
         <div>
@@ -16,5 +16,3 @@ function HookComponent() {
 
 }
 
-
-export default HookComponent;

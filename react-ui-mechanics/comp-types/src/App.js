@@ -1,5 +1,8 @@
 import './App.css';
-import {FunctionComponentA, FunctionComponentB, FunctionComponentC} from "./components/stateless/FunctionComponents";
+import {FunctionComponentA, FunctionComponentB, FunctionComponentC,ClassComponent,HookComponent} from "./components/index";
+
+
+
 import FunctionComponentExportA, {
     FunctionComponentExportB,
     FunctionComponentExportC
@@ -14,8 +17,6 @@ import
 } from "./components/stateless/FunctionComponentsAbbr";
 
 
-import ClassComponent from "./components/state/ClassComponent";
-import HookComponent from "./components/state/HookComponent"
 
 
 function App() {
