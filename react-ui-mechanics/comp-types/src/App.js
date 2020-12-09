@@ -14,6 +14,10 @@ import
 } from "./components/stateless/FunctionComponentsAbbr";
 
 
+import ClassComponent from "./components/state/ClassComponent";
+
+
+
 function App() {
 
     return (
@@ -32,6 +36,9 @@ function App() {
                 <FCompA/>
                 <FCompB/>
                 <FCompC name={"Onur"} surname={'Dayi'}/>
+            </div>
+
+            <div className="function-components-state">
             </div>
 
         </>
