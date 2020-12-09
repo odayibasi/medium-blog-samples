@@ -16,6 +16,8 @@ class ClassComponent extends Component {
         const {age} = this.state;
         return (
             <div>
+                Class Component
+                <br/>
                 <span>Age:{age}</span>
                 <button onClick={this.handleClick}>Increase Age</button>
             </div>

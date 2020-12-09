@@ -15,33 +15,35 @@ import
 
 
 import ClassComponent from "./components/state/ClassComponent";
-
+import HookComponent from "./components/state/HookComponent"
 
 
 function App() {
 
     return (
-        <>
-            <div className="function-components-container">
+        <div className={'app-container'}>
+            <div className="function-components-container container">
                 <FunctionComponentA/>
                 <FunctionComponentB/>
                 <FunctionComponentC name={"Onur"} surname={'Dayi'}/>
             </div>
-            <div className="function-components-export-container">
+            <div className="function-components-export-container container">
                 <FunctionComponentExportA/>
                 <FunctionComponentExportB/>
                 <FunctionComponentExportC name={"Onur"} surname={'Dayi'}/>
             </div>
-            <div className="function-components-abbr-container">
+            <div className="function-components-abbr-container container">
                 <FCompA/>
                 <FCompB/>
                 <FCompC name={"Onur"} surname={'Dayi'}/>
             </div>
 
-            <div className="function-components-state">
+            <div className="function-components-state container">
+                <ClassComponent/>
+                <HookComponent/>
             </div>
 
-        </>
+        </div>
     );
 }
 
