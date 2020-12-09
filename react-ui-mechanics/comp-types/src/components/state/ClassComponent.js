@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import  "./ClassComponent.scss"
 
 export class ClassComponent extends Component {
 
@@ -15,7 +16,7 @@ export class ClassComponent extends Component {
     render() {
         const {age} = this.state;
         return (
-            <div>
+            <div className={'class-component-container'}>
                 Class Component
                 <br/>
                 <span>Age:{age}</span>
