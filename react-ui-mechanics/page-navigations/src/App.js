@@ -3,6 +3,9 @@ import React from 'react';
 import {LoginPage} from "./components/LoginPage";
 import {MainPage} from "./components/MainPage";
 import {SettingsPage} from "./components/SettingsPage";
+import {CompanyPageWithRouter} from "./components/CompanyPage";
+import {CompanyUserPageWithRouter} from "./components/ComponyUserPage";
+
 import {createBrowserHistory} from 'history';
 
 
@@ -58,7 +61,7 @@ class App extends React.Component {
 
     render() {
 
-        const {login, main, settings} = routes;
+        const {login, main, settings,company,companyUsers} = routes;
         return (
             <div className="App">
 
@@ -69,11 +72,17 @@ class App extends React.Component {
                         <Route exact path={login.path}>
                             <LoginPage handlePageChange={this.handlePageChange}/>
                         </Route>
-                        <Route path={main.path}>
+                        <Route exact path={main.path}>
                             <MainPage handlePageChange={this.handlePageChange}/>
                         </Route>
-                        <Route path={settings.path}>
+                        <Route exact path={settings.path}>
                             <SettingsPage handlePageChange={this.handlePageChange}/>
+                        </Route>
+                        <Route exact path={company.path}>
+                            <CompanyPageWithRouter handlePageChange={this.handlePageChange}/>
+                        </Route>
+                        <Route exact path={companyUsers.path}>
+                            <CompanyUserPageWithRouter handlePageChange={this.handlePageChange}/>
                         </Route>
                     </Switch>
                 </Router>
