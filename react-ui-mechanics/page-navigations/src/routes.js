@@ -19,5 +19,9 @@ export const routes = {
         path: "/settings",
         title: "Settings"
     },
+    maps: {
+        path: "/maps",
+        title: "Maps"
+    },
 }
 

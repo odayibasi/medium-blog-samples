@@ -5,6 +5,7 @@ import {MainPage} from "./components/MainPage";
 import {SettingsPage} from "./components/SettingsPage";
 import {CompanyPageWithRouter} from "./components/CompanyPage";
 import {CompanyUserPageWithRouter} from "./components/ComponyUserPage";
+import MapPageLazy from "./components/MapPageLazy";
 
 import {createBrowserHistory} from 'history';
 
@@ -36,7 +37,7 @@ class App extends React.Component {
 
     renderNavMenu = () => {
 
-        const {login, main, settings} = routes;
+        const {login, main, settings,maps} = routes;
 
         return (
             <>
@@ -50,6 +51,9 @@ class App extends React.Component {
                     <li>
                         <Link to={settings.path}>{settings.title}</Link>
                     </li>
+                    <li>
+                        <Link to={maps.path}>{maps.title}</Link>
+                    </li>
                 </ul>
 
                 <hr/>
@@ -61,7 +65,7 @@ class App extends React.Component {
 
     render() {
 
-        const {login, main, settings,company,companyUsers} = routes;
+        const {login, main, settings,company,companyUsers,maps} = routes;
         return (
             <div className="App">
 
@@ -83,6 +87,9 @@ class App extends React.Component {
                         </Route>
                         <Route exact path={companyUsers.path}>
                             <CompanyUserPageWithRouter handlePageChange={this.handlePageChange}/>
+                        </Route>
+                        <Route exact path={maps.path}>
+                            <MapPageLazy/>
                         </Route>
                     </Switch>
                 </Router>
