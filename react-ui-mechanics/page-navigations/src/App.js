@@ -9,7 +9,9 @@ import {createBrowserHistory} from 'history';
 import {
     Switch,
     Route,
-    Router
+    Router,
+    Link,
+    Redirect,
 } from "react-router-dom";
 
 
@@ -28,11 +30,35 @@ class App extends React.Component {
     }
 
 
+    renderNavMenu = () => {
+        return (
+            <>
+                <ul>
+                    <li>
+                        <Link to="/">Login</Link>
+                    </li>
+                    <li>
+                        <Link to="/main">Main</Link>
+                    </li>
+                    <li>
+                        <Link to="/settings">Settings</Link>
+                    </li>
+                </ul>
+
+                <hr/>
+            </>
+
+
+        )
+    }
+
     render() {
         return (
             <div className="App">
 
+
                 <Router history={history}>
+                    {this.renderNavMenu()}
                     <Switch>
                         <Route exact path="/">
                             <LoginPage handlePageChange={this.handlePageChange}/>
