@@ -3,15 +3,15 @@ import React from 'react';
 import {LoginPage} from "./components/LoginPage";
 import {MainPage} from "./components/MainPage";
 import {SettingsPage} from "./components/SettingsPage";
+import {createBrowserHistory} from 'history';
 
 
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
+    Router
 } from "react-router-dom";
 
-import {createBrowserHistory} from 'history';
 
 const history = createBrowserHistory();
 
@@ -24,30 +24,34 @@ class App extends React.Component {
 
 
     handlePageChange = (activePage) => {
-        history.replace(activePage);
+        history.push(activePage);
     }
 
 
     render() {
-
-
         return (
             <div className="App">
-                <Router>
+
+                <Router history={history}>
                     <Switch>
-                        <Route exact path="/settings">
-                            <SettingsPage handlePageChange={this.handlePageChange}/>
-                        </Route>
-                        <Route exact path="/main">
-                            <MainPage handlePageChange={this.handlePageChange}/>
-                        </Route>
                         <Route exact path="/">
                             <LoginPage handlePageChange={this.handlePageChange}/>
                         </Route>
+                        <Route path="/main">
+                            <MainPage handlePageChange={this.handlePageChange}/>
+                        </Route>
+                        <Route path="/settings">
+                            <SettingsPage handlePageChange={this.handlePageChange}/>
+                        </Route>
                     </Switch>
                 </Router>
+
             </div>);
     }
 }
 
+
 export default App;
+
+
+
