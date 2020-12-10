@@ -11,8 +11,9 @@ import {
     Route,
     Router,
     Link,
-    Redirect,
 } from "react-router-dom";
+
+import {routes} from './routes'
 
 
 const history = createBrowserHistory();
@@ -31,17 +32,20 @@ class App extends React.Component {
 
 
     renderNavMenu = () => {
+
+        const {login, main, settings} = routes;
+
         return (
             <>
                 <ul>
                     <li>
-                        <Link to="/">Login</Link>
+                        <Link to={login.path}>{login.title}</Link>
                     </li>
                     <li>
-                        <Link to="/main">Main</Link>
+                        <Link to={main.path}>{main.title}</Link>
                     </li>
                     <li>
-                        <Link to="/settings">Settings</Link>
+                        <Link to={settings.path}>{settings.title}</Link>
                     </li>
                 </ul>
 
@@ -53,6 +57,8 @@ class App extends React.Component {
     }
 
     render() {
+
+        const {login, main, settings} = routes;
         return (
             <div className="App">
 
@@ -60,13 +66,13 @@ class App extends React.Component {
                 <Router history={history}>
                     {this.renderNavMenu()}
                     <Switch>
-                        <Route exact path="/">
+                        <Route exact path={login.path}>
                             <LoginPage handlePageChange={this.handlePageChange}/>
                         </Route>
-                        <Route path="/main">
+                        <Route path={main.path}>
                             <MainPage handlePageChange={this.handlePageChange}/>
                         </Route>
-                        <Route path="/settings">
+                        <Route path={settings.path}>
                             <SettingsPage handlePageChange={this.handlePageChange}/>
                         </Route>
                     </Switch>
