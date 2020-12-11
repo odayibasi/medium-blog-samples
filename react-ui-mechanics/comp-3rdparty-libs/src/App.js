@@ -1,8 +1,15 @@
 import './App.css';
 import {
     ButtonEmphasis, ButtonAnimated, ButtonLoading,
-    DropdownMultipleSearchSelection,RatingStar
+    DropdownMultipleSearchSelection,RatingStar,
 } from './components/SemanticUI'
+
+import {
+    JointLineScatterChart,
+    SimpleLineChart
+} from './components/ReChart'
+
+
 
 function App() {
     return (
@@ -18,6 +25,12 @@ function App() {
                 OTHER
                 <DropdownMultipleSearchSelection/>
                 <RatingStar/>
+            </div>
+
+            <div className={'container'}>
+                RECHART
+                <SimpleLineChart/>
+                <JointLineScatterChart/>
             </div>
         </div>
     );
