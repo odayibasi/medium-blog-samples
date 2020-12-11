@@ -1,3 +1,8 @@
+.App{
+    overflow: auto;
+    height: 100%;
+}
+
 .container{
   border: 2px #8d1a11 solid;
 }

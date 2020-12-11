@@ -1,7 +1,7 @@
 import './App.css';
 import {
     ButtonEmphasis, ButtonAnimated, ButtonLoading,
-    DropdownMultipleSearchSelection,RatingStar,
+    DropdownMultipleSearchSelection, RatingStar,
 } from './components/SemanticUI'
 
 import {
@@ -9,7 +9,9 @@ import {
     SimpleLineChart
 } from './components/ReChart'
 
-
+import {
+    TreeX,
+} from './components/Extended'
 
 function App() {
     return (
@@ -31,6 +33,11 @@ function App() {
                 RECHART
                 <SimpleLineChart/>
                 <JointLineScatterChart/>
+            </div>
+
+            <div className={'container'}>
+                TREE
+                <TreeX/>
             </div>
         </div>
     );
