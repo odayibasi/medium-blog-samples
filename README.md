@@ -2,8 +2,6 @@
 
 Medium Blog Samples
 
-1. clone project from github
-
 ## Run with HTTP-Server and Test on Browser
 
 sample-setup/
@@ -11,7 +9,6 @@ js-tarihcesi/execution-context-lexical-environment-scope-ve-clousure-anlamak-407
 js-operator-6c4a13a1743
 
 ```pre
-git clone https://github.com/odayibasi/medium-blog-samples.git
 npm install http-server -g
 cd related path
 http-server  
