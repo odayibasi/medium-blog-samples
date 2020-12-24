@@ -1,0 +1,43 @@
+.calc-layout-container {
+
+  width: 480px;
+  height: 668px;
+  background-color: #2a2d2f;
+  display: flex;
+  flex-direction: column;
+
+  .screen-layout-container {
+    background-color: red;
+    width: 480px;
+    height: 165px;
+
+  }
+
+  .button-layout-container {
+    background-color: black;
+    width: 480px;
+    height: 504px;
+    display: flex;
+
+    table {
+      table-layout: fixed;
+      height: 100%;
+      width: 100%;
+
+      tr {
+        color: white;
+        height: 20%;
+        border: 1px solid black;
+
+
+         td{
+           width: 25%;
+           text-align: center;
+         }
+      }
+
+    }
+
+  }
+
+}

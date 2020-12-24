@@ -1,0 +1,8 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-background-size: 100;
+  background-size: 100%;
+}
+
