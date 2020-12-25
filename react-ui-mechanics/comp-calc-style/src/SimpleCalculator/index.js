@@ -23,13 +23,19 @@ const numButtonsData10 = numButtonsDataGen(10);
 
 //COMPONENTS PART
 const Button = (props) => {
-    return (<button onClick={props.onClickHandler}>{props.title}</button>)
+    const className = (props.className) ? `btn ${props.className}` : 'btn'
+    return (<button className={className} onClick={props.onClickHandler}>{props.title}</button>)
 }
 
 const Screen = (props) => {
     //const val = props.value === '' ? 0 : props.value
     const val = props?.value; //Similar
-    return (<div>{val}</div>)
+    return (
+        <>
+            <div className='resize-btn-part'></div>
+            <div className='screen-part'>{val}</div>
+        </>
+    )
 }
 
 
@@ -40,28 +46,34 @@ const SimpleCalculator = () => {
     const [result, setResult] = useState('');
 
     const opBtnsDOM = opButtonsData.map(el => <Button key={el.title} title={el.title}
+                                                      className={'op'}
                                                       onClickHandler={() => setResult(calc.push(el.val))}/>);
 
-    const numBtnsDOM = numButtonsData10.map(el => <Button key={el.title} title={el.title}
+    const numBtnsDOM = numButtonsData10.map(el => <Button key={el.title}
+                                                          className={'num'}
+                                                          title={el.title}
                                                           onClickHandler={() => setResult(calc.push(el.val))}/>);
+    const btnCurrency = <Button className={'num'} key=',' title=','/>;
 
 
-    const btnCalc = <Button key='=' title='=' onClickHandler={() => setResult(calc.calc())}/>;
-    const btnAC = <Button key='AC' title='AC' onClickHandler={() => setResult(calc.reset())}/>;
+    const btnCalc = <Button className={'op'} key='=' title='=' onClickHandler={() => setResult(calc.calc())}/>;
+
+    const btnAC = <Button className={'oth'} key='AC' title='AC' onClickHandler={() => setResult(calc.reset())}/>;
+    const btnSignChange = <Button className={'oth'} key='+/-' title='+/-'/>;
+    const btnRatio = <Button className={'oth'} key='%' title='%'/>;
+
+
     return (
         <div className='calc-layout-container'>
             <div class="screen-layout-container">
                 <Screen value={result}/>
             </div>
             <div className='button-layout-container'>
-                {/*{opBtnsDOM}*/}
-                {/*{numBtnsDOM}*/}
-
-                <table>
+                <table border="0" cellspacing="0" cellpadding="1">
                     <tr>
-                        <td>btnAC</td>
-                        <td>C1</td>
-                        <td>C1</td>
+                        <td>{btnAC}</td>
+                        <td>{btnSignChange}</td>
+                        <td>{btnRatio}</td>
                         <td>{opBtnsDOM[3]}</td>
                     </tr>
                     <tr>
@@ -83,9 +95,8 @@ const SimpleCalculator = () => {
                         <td>{opBtnsDOM[0]}</td>
                     </tr>
                     <tr>
-                        <td>C1</td>
-                        <td>C1</td>
-                        <td>C1</td>
+                        <td colSpan={2}>{numBtnsDOM[0]}</td>
+                        <td>{btnCurrency}</td>
                         <td>{btnCalc}</td>
                     </tr>
                 </table>
