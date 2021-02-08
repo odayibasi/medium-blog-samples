@@ -1,0 +1,2 @@
+const sampleArr=[];
+const sampleObj={};
