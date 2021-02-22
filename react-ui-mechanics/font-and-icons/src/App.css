@@ -1,0 +1,37 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-container {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 100px;
+}
+
+.my-fontawesome {
+    font-size: 100px;
+    color: #8D1A11;
+}
+
+.my-react-icon {
+    font-size: 100px;
+    color: #ff9e0a;
+}
+
+.my-font-set{
+    font-size: 100px;
+    color: mediumslateblue;
+}
+
+
+.my-svg-icon{
+    font-size: 30px;
+}
+
+.svg-container{
+    display: flex;
+    flex-direction: row;
+
+}
