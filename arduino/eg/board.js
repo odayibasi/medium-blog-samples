@@ -6,7 +6,7 @@ const board = new Board();
 // This Code from http://johnny-five.io/
 board.on("ready", () => {
     console.log("Ready!");
-    const led = new Led(8);
+    const led = new Led(11);
     led.blink(500);
 });
 
