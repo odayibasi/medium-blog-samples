@@ -1,13 +1,18 @@
-function user(name){
-    const obj={
-                name:name,
-                sayHello:function(){
-                    console.log(`My name is ${this.name}`);
-                }
-              };
-    return obj;
+class User{
+  constructor(name){
+    this.name=name;
+    setTimeout(1000, this.sayName);
+  }
+  
+  sayName=()=>{
+    console.log(this.name)
+  }
+  
 }
 
-user('Onur').sayHello();
-user('Deniz').sayHello();
+const user=new User('onur');
+
+
+
+
 
