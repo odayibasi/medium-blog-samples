@@ -1,9 +1,19 @@
 .App {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.form-container{
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  border: #162a36 2px solid;
 }
 
 .form {
