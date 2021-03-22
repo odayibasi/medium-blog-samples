@@ -1,20 +1,12 @@
 import React, {Component} from 'react';
 
 const cities = ['none', 'Ankara', 'Istanbul', 'Izmir'];
-
-
 export class LoginForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            username: '',
-            password: '',
-            city: 'none',
-            acceptTerm: false,
-        }
+        this.state = { username: '',  password: '', city: 'none', acceptTerm: false}
     }
-
 
     handleUserNameChange = (event) => {
         const {value} = event?.target;
@@ -36,13 +28,10 @@ export class LoginForm extends Component {
         this.setState({acceptTerm: checked});
     }
 
-
     handleSubmit=(event) =>{
         event.preventDefault();
         console.log(this.state);
     }
-
-
 
     render() {
         const {username, password, city, acceptTerm} = this.state;
@@ -56,9 +45,6 @@ export class LoginForm extends Component {
                 <input onChange={this.handleTermChange} type='checkbox' value={acceptTerm}/>
                 <input type="submit" value="Gönder"/>
             </form>
-
-
         )
     }
-
 }
