@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  background-color: gray;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+.form-title{
+  display: flex;
+  justify-content: flex-start;
+  width:100%;
+}
+
+
+
