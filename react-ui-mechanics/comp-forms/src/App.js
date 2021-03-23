@@ -4,6 +4,7 @@ import {NameForm, UncontrolledNameForm} from "./components/NameForm";
 import {EssayForm} from "./components/EssayForm";
 import {FlavorForm} from "./components/FlavorForm";
 import {FileForm} from "./components/FileForm";
+import {CustomTextInput} from "./components/CustomInputText";
 
 function App() {
     return (
@@ -14,9 +15,12 @@ function App() {
                 <FlavorForm/>
                 <LoginForm/>
             </div>
-            <div>
+            <div className='form-container'>
                 <UncontrolledNameForm/>
                 <FileForm/>
+            </div>
+            <div className='form-container'>
+                 <CustomTextInput/>
             </div>
 
         </div>
