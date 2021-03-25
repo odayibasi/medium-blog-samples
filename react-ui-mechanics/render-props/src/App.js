@@ -54,9 +54,9 @@ function App() {
 
             <div className='row-container'>
                 <strong>RenderProps</strong>
-                <Hover>{(hovering) => <RBlueComponent hovering={hovering}/>}</Hover>
-                <Hover>{(hovering) => <RGreenComponent hovering={hovering}/>}</Hover>
-                <Hover>{(hovering) => <RRedComponent hovering={hovering}/>}</Hover>
+                <Hover render={(hovering) => (<RBlueComponent hovering={hovering}/>)}/>
+                <Hover>render={(hovering) => (<RGreenComponent hovering={hovering}/>)}</Hover>
+                <Hover>render={(hovering) => (<RRedComponent hovering={hovering}/>)}</Hover>
             </div>
 
             <div className='row-container'>
@@ -65,7 +65,6 @@ function App() {
                 <HGreenComponent/>
                 <HRedComponent/>
             </div>
-
 
 
         </div>
