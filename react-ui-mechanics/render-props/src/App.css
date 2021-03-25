@@ -1,0 +1,22 @@
+.row-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px #2a2d2f solid;
+}
+
+strong{
+    width: 100px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    width: 200px;
+    height: 50px;
+    margin: 20px 10px;
+
+}
