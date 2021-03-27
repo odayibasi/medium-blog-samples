@@ -1,13 +1,15 @@
 import './App.css';
-import {Theme} from "./components/useStateUsage";
+import {Theme, Todo, Post} from "./components/useStateUsage";
 
 function App() {
-  return (
-    <div className="App">
-      <Theme/>
+    return (
+        <div className="App">
+            <Theme/>
+            <Todo/>
+            <Post/>
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
