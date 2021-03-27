@@ -1,0 +1,18 @@
+html, body, #root, .light, .dark {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.light {
+  background: #fff;
+}
+
+.dark {
+  background: #000;
+}
+
+button {
+  font-size: 80px;
+  background: transparent;
+}
