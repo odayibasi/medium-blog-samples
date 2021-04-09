@@ -26,6 +26,51 @@ export function Counter () {
 }
 
 
+
+export function Counter2() {
+    console.count('Counter Func Call')
+    const [count, setCount] = React.useState(0)
+
+
+    React.useEffect(count % 2 === 0 ? () => {
+        console.count('In useEffect, after render')
+        document.title = `Count: ${count}`
+    } : () => {
+        console.count('In useEffect XXX, after render')
+        document.title = `Count XXX: ${count}`
+    })
+
+    return (
+        <>
+            <button onClick={() => setCount((c) => c - 1)}>-</button>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount((c) => c + 1)}>+</button>
+        </>
+    )
+}
+
+
+
+export function Counter3 () {
+    const [count, setCount] = React.useState(0);
+
+    React.useEffect(() => {
+        console.count('In useEffect, after render')
+        document.title = `Count: ${count}`
+    })
+
+    console.count('Rendering')
+
+    return (
+        <>
+            <button onClick={() => setCount((c) => c - 1)}>-</button>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount((c) => c + 1)}>+</button>
+        </>
+    )
+}
+
+
 /*============================================================================
   PROFILE
 ============================================================================ */
@@ -59,6 +104,36 @@ export function Profile () {
         </div>
     );
 }
+
+
+
+export function Profile2() {
+    const [profile, setProfile] = React.useState(null)
+    const [input, setInput] = React.useState('odayibasi')
+
+    React.useEffect(() => {
+        getGithubProfile(input)
+            .then(setProfile)
+    }, [input])
+
+    if (profile === null) {
+        return <p>Loading...</p>
+    }
+
+    return (
+        <div>
+            <input type='text' value={input} onChange={(e) => setInput(e.target.value)}
+                   placeholder='Profile'/>
+            <h1>@{profile.login}</h1>
+            <img
+                src={profile.avatar_url}
+                alt={`Avatar for ${profile.login}`}
+            />
+            <p>{profile.bio}</p>
+        </div>
+    );
+}
+
 
 
 /*============================================================================
