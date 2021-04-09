@@ -1,9 +1,9 @@
 import './App.css';
 import {Theme, Todo, Post} from "./components/useStateUsage";
-import {Counter, Counter2, Profile, Profile2, CharLimit, Wait} from "./components/useEffectUsage";
+import {Counter, Counter2,Counter3, Counter4, Profile, Profile2, CharLimit, Wait} from "./components/useEffectUsage";
 import React from "react";
 
-const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Profile', 'Profile2', 'CharLimit', 'Wait'];
+const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4','Profile', 'Profile2', 'CharLimit', 'Wait'];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -20,6 +20,8 @@ function App() {
             {comp === 'Post' && <Post/>}
             {comp === 'Counter' && <Counter/>}
             {comp === 'Counter2' && <Counter2/>}
+            {comp === 'Counter3' && <Counter3/>}
+            {comp === 'Counter4' && <Counter4/>}
             {comp === 'Profile' && <Profile/>}
             {comp === 'Profile2' && <Profile2/>}
             {comp === 'CharLimit' && <CharLimit/>}

@@ -57,6 +57,40 @@ export function Counter3 () {
     React.useEffect(() => {
         console.count('In useEffect, after render')
         document.title = `Count: ${count}`
+
+        setInterval(()=>{
+            console.log('HELLO')
+        },1000);
+
+    })
+
+    console.count('Rendering')
+
+    return (
+        <>
+            <button onClick={() => setCount((c) => c - 1)}>-</button>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount((c) => c + 1)}>+</button>
+        </>
+    )
+}
+
+
+export function Counter4 () {
+    const [count, setCount] = React.useState(0);
+
+    React.useEffect(() => {
+        console.count('In useEffect, after render')
+        document.title = `Count: ${count}`
+
+        const intervalID=setInterval(()=>{
+            console.log('HELLO')
+        },1000);
+
+        return ()=>{
+            console.count('Clear Interval Called')
+            clearInterval(intervalID)
+        }
     })
 
     console.count('Rendering')
