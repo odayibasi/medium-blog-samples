@@ -1,9 +1,19 @@
 import './App.css';
 import {Theme, Todo, Post} from "./components/useStateUsage";
-import {Counter, Counter2,Counter3, Counter4, Profile, Profile2, CharLimit, Wait} from "./components/useEffectUsage";
+import {
+    Counter,
+    Counter2,
+    Counter3,
+    Counter4,
+    Profile,
+    Profile2,
+    CharLimit,
+    Wait,
+    PostFetching
+} from "./components/useEffectUsage";
 import React from "react";
 
-const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4','Profile', 'Profile2', 'CharLimit', 'Wait'];
+const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4', 'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching'];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -26,6 +36,7 @@ function App() {
             {comp === 'Profile2' && <Profile2/>}
             {comp === 'CharLimit' && <CharLimit/>}
             {comp === 'RealUI' && <Wait ui='RealUI' placeholder='placeholder'/>}
+            {comp === 'PostFetching' && <PostFetching/>}
 
 
         </div>
