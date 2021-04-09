@@ -225,7 +225,7 @@ export function Wait ({ delay = 1000, placeholder, ui }) {
 
 
 
-https://codesandbox.io/s/useeffect-solution-fetch-xbgpi?file=/src/index.js:0-2295
+//https://codesandbox.io/s/useeffect-solution-fetch-xbgpi?file=/src/index.js:0-2295
 const postIds = [1,2,3,4,5,6,7,8]
 function fetchPost (id) {
     return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) => res.json())
