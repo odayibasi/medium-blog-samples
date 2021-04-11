@@ -9,11 +9,20 @@ import {
     Profile2,
     CharLimit,
     Wait,
-    PostFetching
+    PostFetching,
+    WindowDimensionCalculator
 } from "./components/useEffectUsage";
+
+import {
+    ThemeContextSample,
+} from "./components/useContextUsage";
+
+
 import React from "react";
 
-const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4', 'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching'];
+const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4',
+    'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching',
+    'WindowDimensionCalculator', 'ThemeContextSample'];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -37,6 +46,9 @@ function App() {
             {comp === 'CharLimit' && <CharLimit/>}
             {comp === 'RealUI' && <Wait ui='RealUI' placeholder='placeholder'/>}
             {comp === 'PostFetching' && <PostFetching/>}
+            {comp === 'WindowDimensionCalculator' && <WindowDimensionCalculator/>}
+            {comp === 'ThemeContextSample' && <ThemeContextSample/>}
+
 
 
         </div>

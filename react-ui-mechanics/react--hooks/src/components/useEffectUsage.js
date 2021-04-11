@@ -6,7 +6,7 @@ import React from "react";
 
 
 //https://codesandbox.io/s/useeffect-counter-fcdgp
-export function Counter () {
+export function Counter() {
     const [count, setCount] = React.useState(0)
 
     React.useEffect(() => {
@@ -24,7 +24,6 @@ export function Counter () {
         </>
     )
 }
-
 
 
 export function Counter2() {
@@ -50,17 +49,16 @@ export function Counter2() {
 }
 
 
-
-export function Counter3 () {
+export function Counter3() {
     const [count, setCount] = React.useState(0);
 
     React.useEffect(() => {
         console.count('In useEffect, after render')
         document.title = `Count: ${count}`
 
-        setInterval(()=>{
+        setInterval(() => {
             console.log('HELLO')
-        },1000);
+        }, 1000);
 
     })
 
@@ -76,18 +74,18 @@ export function Counter3 () {
 }
 
 
-export function Counter4 () {
+export function Counter4() {
     const [count, setCount] = React.useState(0);
 
     React.useEffect(() => {
         console.count('In useEffect, after render')
         document.title = `Count: ${count}`
 
-        const intervalID=setInterval(()=>{
+        const intervalID = setInterval(() => {
             console.log('HELLO')
-        },1000);
+        }, 1000);
 
-        return ()=>{
+        return () => {
             console.count('Clear Interval Called')
             clearInterval(intervalID)
         }
@@ -110,12 +108,12 @@ export function Counter4 () {
 ============================================================================ */
 
 //https://codesandbox.io/s/useeffect-infinite-loop-tczzm?file=/src/index.js:62-718
-function getGithubProfile (username) {
+function getGithubProfile(username) {
     return fetch(`https://api.github.com/users/${username}`)
         .then((res) => res.json())
 }
 
-export function Profile () {
+export function Profile() {
     const [profile, setProfile] = React.useState(null)
 
     React.useEffect(() => {
@@ -138,7 +136,6 @@ export function Profile () {
         </div>
     );
 }
-
 
 
 export function Profile2() {
@@ -169,13 +166,13 @@ export function Profile2() {
 }
 
 
-
 /*============================================================================
   CHARLIMIT
 ============================================================================ */
+
 //https://codesandbox.io/s/useeffect-solution-character-limit-hl4f1?file=/src/index.js:525-1046
 export function CharLimit() {
-    const LIMIT=30;
+    const LIMIT = 30;
     const [input, setInput] = React.useState('')
 
     React.useEffect(() => {
@@ -205,7 +202,7 @@ export function CharLimit() {
 
 //https://codesandbox.io/s/useeffect-solution-wait-delay-418fz?file=/src/index.js:86-396
 
-export function Wait ({ delay = 1000, placeholder, ui }) {
+export function Wait({delay = 1000, placeholder, ui}) {
     const [show, setShow] = React.useState(false)
 
     React.useEffect(() => {
@@ -220,16 +217,17 @@ export function Wait ({ delay = 1000, placeholder, ui }) {
 }
 
 
-
-
-
-
+/*============================================================================
+  FETCHING POST
+============================================================================ */
 
 //https://codesandbox.io/s/useeffect-solution-fetch-xbgpi?file=/src/index.js:0-2295
-const postIds = [1,2,3,4,5,6,7,8]
-function fetchPost (id) {
+const postIds = [1, 2, 3, 4, 5, 6, 7, 8]
+
+function fetchPost(id) {
     return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) => res.json())
 }
+
 export function PostFetching() {
     const [index, setIndex] = React.useState(0)
     const [loading, setLoading] = React.useState(true)
@@ -251,13 +249,61 @@ export function PostFetching() {
             })
     }, [index])
 
-    const incrementIndex = () => {setIndex((i) => i === postIds.length - 1 ? i : i + 1)}
-    if (loading === true) {return <p>Loading</p>}
-    if (error) { return (<React.Fragment><p>{error}</p><button onClick={incrementIndex}>Next Post</button></React.Fragment>)}
-    return ( <div className="Post Fetching">
-                <h1>{post.title}</h1>
-                <p>{post.body}</p>
-                {index === postIds.length - 1 ? <p>No more posts</p> : <button onClick={incrementIndex}>Next Post</button>}
-            </div>
+    const incrementIndex = () => {
+        setIndex((i) => i === postIds.length - 1 ? i : i + 1)
+    }
+    if (loading === true) {
+        return <p>Loading</p>
+    }
+    if (error) {
+        return (<React.Fragment><p>{error}</p>
+            <button onClick={incrementIndex}>Next Post</button>
+        </React.Fragment>)
+    }
+    return (<div className="Post Fetching">
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+            {index === postIds.length - 1 ? <p>No more posts</p> : <button onClick={incrementIndex}>Next Post</button>}
+        </div>
     );
+}
+
+
+/*============================================================================
+  Window Dimension Calculator
+============================================================================ */
+//https://codesandbox.io/s/custom-hooks-solution-browser-dimensions-vhzdu?file=/src/index.js:521-1207
+function useWindowDimensions() {
+    const [width, setWidth] = React.useState(window.innerWidth)
+    const [height, setHeight] = React.useState(window.innerHeight)
+
+    React.useEffect(() => {
+        const listener = () => {
+            setWidth(window.innerWidth)
+            setHeight(window.innerHeight)
+        }
+
+        window.addEventListener("resize", listener)
+
+        return () => {
+            window.removeEventListener("resize", listener)
+        }
+    }, [])
+
+    return {
+        width,
+        height
+    }
+}
+
+
+export function WindowDimensionCalculator() {
+    const {width, height} = useWindowDimensions()
+    return (
+        <div className="App">
+            <h2>width: {width}</h2>
+            <h2>height: {height}</h2>
+            <p>Resize the window.</p>
+        </div>
+    )
 }
