@@ -10,7 +10,7 @@ import {
     CharLimit,
     Wait,
     PostFetching,
-    WindowDimensionCalculator
+    WindowDimensionCalculator,
 } from "./components/useEffectUsage";
 
 import {
@@ -19,10 +19,11 @@ import {
 
 
 import React from "react";
+import {CounterWorkReducer} from "./components/useReducerUsage";
 
 const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4',
     'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching',
-    'WindowDimensionCalculator', 'ThemeContextSample'];
+    'WindowDimensionCalculator', 'ThemeContextSample', 'CounterWorkReducer'];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
             {comp === 'PostFetching' && <PostFetching/>}
             {comp === 'WindowDimensionCalculator' && <WindowDimensionCalculator/>}
             {comp === 'ThemeContextSample' && <ThemeContextSample/>}
-
+            {comp === 'CounterWorkReducer' && <CounterWorkReducer/>}
 
 
         </div>
