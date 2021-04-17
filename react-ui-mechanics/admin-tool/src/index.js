@@ -9,6 +9,12 @@ import rootReducer from './store/reducers'
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
+import {Router} from "react-router-dom";
+import {createBrowserHistory} from 'history';
+const history = createBrowserHistory({forceRefresh: false});
+
+
+
 
 let middleware = applyMiddleware(promise, thunk);
 const store = createStore(rootReducer, middleware)
@@ -16,7 +22,9 @@ const store = createStore(rootReducer, middleware)
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Router history={history}>
+            <App/>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

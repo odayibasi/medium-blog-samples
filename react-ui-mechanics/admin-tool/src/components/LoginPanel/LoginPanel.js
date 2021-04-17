@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import {TextField} from "@material-ui/core";
+import {routes} from 'routes';
 import './LoginPanel.scss';
 
 export class LoginPanel extends React.Component {
@@ -16,8 +17,8 @@ export class LoginPanel extends React.Component {
     handleLogin = () => {
         const {username} = this.state;
         this.props.getUser(username);
-        //this.props.handlePageChange(routes.admin.path)
     }
+
 
     render() {
 
@@ -32,6 +33,7 @@ export class LoginPanel extends React.Component {
                     </div>
                 )
             } else {
+                this.props.history.push(routes.admin.path) //TODO This is not a god place to redireciton
                 return (
                     <div>
                         Login Başarısız
