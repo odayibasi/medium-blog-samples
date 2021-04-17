@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import {TextField} from "@material-ui/core";
-import {routes} from "routes";
 import './LoginPanel.scss';
 
 export class LoginPanel extends React.Component {
@@ -16,11 +15,13 @@ export class LoginPanel extends React.Component {
 
     handleLogin = () => {
         const {username, password} = this.state;
-        alert(`username:${username} and password: ${password}`)
-        this.props.handlePageChange(routes.admin.path)
+        this.props.getUser(username);
+        //this.props.handlePageChange(routes.admin.path)
     }
 
     render() {
+
+
 
         return (
             <div>
