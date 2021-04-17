@@ -1,0 +1,14 @@
+.login-panel-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 5px;
+
+  .MuiTextField-root {
+    width: 200px;
+    margin: 10px;
+  }
+}

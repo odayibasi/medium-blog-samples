@@ -1,2 +1,2 @@
 export * from './AdminPage'
-export * from './LandingPage'
+export * from './LandingPage/LandingPage'

@@ -1,10 +1,9 @@
-import './App.css';
 import {LandingPage, AdminPage} from 'components';
-
 import React from 'react';
 import {Route, Router, Switch} from "react-router-dom";
 import {createBrowserHistory} from 'history';
 import {routes} from 'routes';
+import './App.css';
 
 const history = createBrowserHistory({forceRefresh: false});
 
