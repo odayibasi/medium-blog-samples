@@ -17,7 +17,7 @@ export default function user(state = initialState, action) {
                 fetching: false,
                 fetched: true,
                 error: null,
-                users: {...action.payload.data}
+                users: [...action.payload.data]
             };
         case USER.GET_USER_REJECTED:
             return {...state, fetching: false, fetched: false, error: action.payload};

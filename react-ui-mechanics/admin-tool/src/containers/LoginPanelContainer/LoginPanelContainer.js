@@ -4,7 +4,7 @@ import {getUser} from 'store/actions'
 
 
 const mapStateToProps = state => ({
-    users: state.users,
+    user: state.user,
 })
 
 const mapDispatchToProps = dispatch => (

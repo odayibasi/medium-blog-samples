@@ -14,29 +14,64 @@ export class LoginPanel extends React.Component {
     }
 
     handleLogin = () => {
-        const {username, password} = this.state;
+        const {username} = this.state;
         this.props.getUser(username);
         //this.props.handlePageChange(routes.admin.path)
     }
 
     render() {
 
+        const {users, fetching, fetched, error} = this.props.user;
+        const {password} = this.state;
 
+        if (fetched) {
+            if (users.length > 0 && users[0].password === password) {
+                return (
+                    <div>
+                        Login Başarılı
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        Login Başarısız
+                    </div>
+                )
+            }
 
-        return (
-            <div>
-                <form className='login-panel-container' noValidate autoComplete="on">
-                    <TextField required label="Username"
-                               onChange={(e) => this.setState({username: e.target.value})}/>
-                    <TextField required label="Password" type="password" autoComplete="current-password"
-                               onChange={(e) => this.setState({password: e.target.value})}/>
-                    <Button
-                        onClick={(e) => this.handleLogin()}
-                        variant="contained" color="primary">Login</Button>
-                </form>
+        } else if (fetching) {
+            return (
+                <div>
+                    Sunucuya Erişim Sağlanıyor ....
+                </div>
+            )
+        } else if (error) {
 
-            </div>
-        );
+            return (
+                <div>
+                    Sunucuya Erişimda Hata oluştu
+                </div>
+            )
+
+        } else {
+
+            return (
+                <div>
+                    <form className='login-panel-container' noValidate autoComplete="on">
+                        <TextField required label="Username"
+                                   onChange={(e) => this.setState({username: e.target.value})}/>
+                        <TextField required label="Password" type="password" autoComplete="current-password"
+                                   onChange={(e) => this.setState({password: e.target.value})}/>
+                        <Button
+                            onClick={(e) => this.handleLogin()}
+                            variant="contained" color="primary">Login</Button>
+                    </form>
+
+                </div>
+            );
+
+        }
+
 
     }
 
