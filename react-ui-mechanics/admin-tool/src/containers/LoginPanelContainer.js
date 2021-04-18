@@ -1,8 +1,7 @@
 import {connect} from 'react-redux'
 import {LoginPanel} from 'components/LoginPanel/LoginPanel'
-import {getUser} from 'store/actions'
+import {getUser, resetUser} from 'store/actions'
 import {withRouter} from "react-router";
-
 
 
 const mapStateToProps = state => ({
@@ -12,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
     {
         getUser: (username) => dispatch(getUser(username)),
-
+        resetUser: () => dispatch(resetUser()),
     }
 )
 

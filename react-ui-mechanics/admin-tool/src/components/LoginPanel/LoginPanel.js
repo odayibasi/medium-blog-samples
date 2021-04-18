@@ -19,6 +19,10 @@ export class LoginPanel extends React.Component {
         this.props.getUser(username);
     }
 
+    handleReset = () => {
+        this.props.resetUser();
+    }
+
 
     render() {
 
@@ -27,16 +31,17 @@ export class LoginPanel extends React.Component {
 
         if (fetched) {
             if (users.length > 0 && users[0].password === password) {
+                this.props.history.push(routes.admin.path) //TODO This part will be fixed
                 return (
                     <div>
                         Login Başarılı
                     </div>
                 )
             } else {
-                this.props.history.push(routes.admin.path) //TODO This is not a god place to redireciton
                 return (
                     <div>
                         Login Başarısız
+                        <button onClick={this.handleReset}>Return Login</button>
                     </div>
                 )
             }
@@ -45,6 +50,7 @@ export class LoginPanel extends React.Component {
             return (
                 <div>
                     Sunucuya Erişim Sağlanıyor ....
+                    <button onClick={this.handleReset}>Return Login</button>
                 </div>
             )
         } else if (error) {
@@ -52,6 +58,7 @@ export class LoginPanel extends React.Component {
             return (
                 <div>
                     Sunucuya Erişimda Hata oluştu
+                    <button onClick={this.handleReset}>Return Login</button>
                 </div>
             )
 
@@ -59,7 +66,7 @@ export class LoginPanel extends React.Component {
 
             return (
                 <div>
-                    <form className='login-panel-container' noValidate autoComplete="on">
+                    <form className='login-panel-container' noValidate autoComplete="off">
                         <TextField required label="Username"
                                    onChange={(e) => this.setState({username: e.target.value})}/>
                         <TextField required label="Password" type="password" autoComplete="current-password"

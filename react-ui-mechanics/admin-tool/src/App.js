@@ -1,4 +1,4 @@
-import {LandingPage, AdminPage} from 'components';
+import {LandingPageContainer, AdminPageContainer} from 'containers';
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import {routes} from 'routes';
@@ -12,8 +12,8 @@ class App extends React.Component {
         return (
             <div className="App">
                     <Switch>
-                        <Route exact path={landing.path}><LandingPage/></Route>
-                        <Route exact path={admin.path}><AdminPage/></Route>
+                        <Route exact path={landing.path}><LandingPageContainer/></Route>
+                        <Route exact path={admin.path}><AdminPageContainer/></Route>
                     </Switch>
             </div>
         );
