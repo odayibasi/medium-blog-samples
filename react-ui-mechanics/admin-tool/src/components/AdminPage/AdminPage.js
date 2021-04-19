@@ -1,9 +1,10 @@
 import React from 'react';
 import {routes} from "routes";
+import {ProductTable} from "../ProductTable/ProductTable";
 
 export class AdminPage extends React.Component {
 
-    handleLogout=()=>{
+    handleLogout = () => {
         this.props.resetUser();
         this.props.history.push(routes.landing.path);
     }
@@ -12,8 +13,9 @@ export class AdminPage extends React.Component {
     render() {
         return (
             <div>
-                Admin Page
+                <h1>Admin Page</h1>
                 <button onClick={this.handleLogout}>Logout</button>
+                <ProductTable/>
             </div>
         )
     }
