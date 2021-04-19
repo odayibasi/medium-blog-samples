@@ -7,7 +7,7 @@ const initialState = {
     error: null,
 };
 
-export default function user(state = initialState, action) {
+export default function products(state = initialState, action) {
     switch (action.type) {
         case PRODUCTS.GET_PRODUCTS_PENDING:
             return {...state, fetching: true, fetched: false, error: null};
@@ -17,7 +17,7 @@ export default function user(state = initialState, action) {
                 fetching: false,
                 fetched: true,
                 error: null,
-                users: [...action.payload.data]
+                products: [...action.payload.data]
             };
         case PRODUCTS.GET_PRODUCTS_REJECTED:
             return {...state, fetching: false, fetched: false, error: action.payload};

@@ -11,24 +11,17 @@ import EditIcon from '@material-ui/icons/Edit';
 import Paper from '@material-ui/core/Paper';
 
 
-function createData(code, name, calories, fat, carbs, protein, creationDate, updatedDate) {
-    return {code, name, calories, fat, carbs, protein, creationDate, updatedDate};
-}
-
-const rows = [
-    createData(1, 'Frozen yoghurt', 159, 6.0, 24, 4.0, 1618815892370, 1618815892370),
-    createData(2, 'Ice cream sandwich', 237, 9.0, 37, 4.3, 1618815892370, 1618815892370),
-    createData(3, 'Eclair', 262, 16.0, 24, 6.0, 1618815892370, 1618815892370),
-    createData(4, 'Cupcake', 305, 3.7, 67, 4.3, 1618815892370, 1618815892370),
-    createData(5, 'Gingerbread', 356, 16.0, 49, 3.9, 1618815892370, 1618815892370),
-];
-
 export class ProductTable extends React.Component {
 
 
+    componentDidMount() {
+        this.props.getProducts();
+    }
 
 
     render() {
+
+        const {products, fetching, fertched, error} = this.props.products;
 
         return (
             <TableContainer component={Paper}>
@@ -47,7 +40,7 @@ export class ProductTable extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {products.map((row) => (
                             <TableRow key={row.name}>
                                 <TableCell component="th" scope="row">{row.code}</TableCell>
                                 <TableCell component="th" scope="row">{row.name}</TableCell>

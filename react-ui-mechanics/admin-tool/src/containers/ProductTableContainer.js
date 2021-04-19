@@ -5,7 +5,7 @@ import {withRouter} from "react-router";
 
 
 const mapStateToProps = state => ({
-    user: state.user,
+    products: state.products,
 })
 
 const mapDispatchToProps = dispatch => (
