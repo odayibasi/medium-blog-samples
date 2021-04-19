@@ -25,7 +25,7 @@ export default function products(state = initialState, action) {
             };
         case PRODUCTS.DEL_PRODUCT_FULFILLED:
             const products = [...state.products];
-            const filtered = products.filter(el => el.id === action.payload.data.id);
+            const filtered = products.filter(el => el.id !== action.payload.data.id);
             return {
                 ...state,
                 fetching: false,

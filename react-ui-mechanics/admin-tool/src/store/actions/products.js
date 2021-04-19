@@ -9,23 +9,15 @@ export function getProducts() {
     }
 }
 
-function deleteCall(id) {
-    axios.delete(`http://localhost:3004/products/${id}`)
-        .then(resp => {
-            return {id: id}
-        }).catch(error => {
-        throw error;
-    })
 
-}
-
-
-export function delProduct(id) {
-    return {
-        type: PRODUCTS.DEL_PRODUCT,
-        payload: deleteCall(id)
-    }
-}
-
-
-;
+export function dispatchDelProduct(dispatch,id) {
+    //Handle Own Dispach Because JSON Server return {} empty object when Delete occured
+    dispatch({type: PRODUCTS.DEL_PRODUCT_PENDING, payload: {data: {id: id}}})
+    dispatch({type: 'TEMP', payload: axios.delete(`http://localhost:3004/products/${id}`)})
+        .then(response => {
+            dispatch({type: PRODUCTS.DEL_PRODUCT_FULFILLED, payload: {data: {id: id}}})
+        })
+        .catch(err => {
+            dispatch({type: PRODUCTS.DEL_PRODUCT_REJECTED, payload: err})
+        });
+};
