@@ -8,16 +8,6 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "Frozen yoghurt",
-      "calories": 159,
-      "fat": 6,
-      "carbs": 24,
-      "protein": 4,
-      "creationDate": 1618815892370,
-      "updatedDate": 1618815892370
-    },
-    {
       "id": 2,
       "name": "Ice cream sandwich",
       "calories": 237,

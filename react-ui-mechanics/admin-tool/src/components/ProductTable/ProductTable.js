@@ -19,21 +19,28 @@ export class ProductTable extends React.Component {
     }
 
     handleDelete = (id) => {
-        //console.log(id);
         this.props.delProduct(id);
+    }
+
+
+    formatDate = (date) => {
+        const formattedDate = (new Date(date)).toISOString();
+        return formattedDate;
+
     }
 
 
     render() {
 
-        const {products, fetching, fertched, error} = this.props.products;
+        const {products, fetching, fetched, error} = this.props.products;
+
 
         return (
             <TableContainer component={Paper}>
                 <Table className='products-table' aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Code</TableCell>
+                            <TableCell>ID</TableCell>
                             <TableCell>Name</TableCell>
                             <TableCell align="right">Calories</TableCell>
                             <TableCell align="right">Fat&nbsp;(g)</TableCell>
@@ -53,8 +60,8 @@ export class ProductTable extends React.Component {
                                 <TableCell align="right">{row.fat}</TableCell>
                                 <TableCell align="right">{row.carbs}</TableCell>
                                 <TableCell align="right">{row.protein}</TableCell>
-                                <TableCell align="right">{row.creationDate}</TableCell>
-                                <TableCell align="right">{row.updatedDate}</TableCell>
+                                <TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
+                                <TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
                                 <TableCell align="right">
                                     <IconButton aria-label="edit" className='edit-btn'>
                                         <EditIcon fontSize="small"/>
