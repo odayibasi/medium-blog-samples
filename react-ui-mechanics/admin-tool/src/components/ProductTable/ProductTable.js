@@ -18,6 +18,11 @@ export class ProductTable extends React.Component {
         this.props.getProducts();
     }
 
+    handleDelete = (id) => {
+        //console.log(id);
+        this.props.delProduct(id);
+    }
+
 
     render() {
 
@@ -42,7 +47,7 @@ export class ProductTable extends React.Component {
                     <TableBody>
                         {products.map((row) => (
                             <TableRow key={row.name}>
-                                <TableCell component="th" scope="row">{row.code}</TableCell>
+                                <TableCell component="th" scope="row">{row.id}</TableCell>
                                 <TableCell component="th" scope="row">{row.name}</TableCell>
                                 <TableCell align="right">{row.calories}</TableCell>
                                 <TableCell align="right">{row.fat}</TableCell>
@@ -51,12 +56,15 @@ export class ProductTable extends React.Component {
                                 <TableCell align="right">{row.creationDate}</TableCell>
                                 <TableCell align="right">{row.updatedDate}</TableCell>
                                 <TableCell align="right">
-                                    <IconButton aria-label="delete" className='delete-btn'>
-                                        <DeleteIcon fontSize="small"/>
-                                    </IconButton>
-                                    <IconButton aria-label="delete" className='edit-btn'>
+                                    <IconButton aria-label="edit" className='edit-btn'>
                                         <EditIcon fontSize="small"/>
                                     </IconButton>
+                                    <IconButton aria-label="delete" className='delete-btn'
+                                                onClick={(e) => this.handleDelete(row.id)}
+                                    >
+                                        <DeleteIcon fontSize="small"/>
+                                    </IconButton>
+
                                 </TableCell>
                             </TableRow>
                         ))}

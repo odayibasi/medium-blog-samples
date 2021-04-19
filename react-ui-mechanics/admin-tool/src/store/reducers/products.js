@@ -10,7 +10,11 @@ const initialState = {
 export default function products(state = initialState, action) {
     switch (action.type) {
         case PRODUCTS.GET_PRODUCTS_PENDING:
+        case PRODUCTS.DEL_PRODUCT_PENDING:
             return {...state, fetching: true, fetched: false, error: null};
+        case PRODUCTS.GET_PRODUCTS_REJECTED:
+        case PRODUCTS.DEL_PRODUCT_REJECTED:
+            return {...state, fetching: false, fetched: false, error: action.payload};
         case PRODUCTS.GET_PRODUCTS_FULFILLED:
             return {
                 ...state,
@@ -19,9 +23,21 @@ export default function products(state = initialState, action) {
                 error: null,
                 products: [...action.payload.data]
             };
-        case PRODUCTS.GET_PRODUCTS_REJECTED:
-            return {...state, fetching: false, fetched: false, error: action.payload};
+        case PRODUCTS.DEL_PRODUCT_FULFILLED:
+            const products = [...state.products];
+            const filtered = products.filter(el => el.id === action.payload.data.id);
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                error: null,
+                products: [...filtered]
+            };
+
+
         default:
             return state
+
+
     }
 }

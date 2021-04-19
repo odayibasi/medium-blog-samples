@@ -9,3 +9,23 @@ export function getProducts() {
     }
 }
 
+function deleteCall(id) {
+    axios.delete(`http://localhost:3004/products/${id}`)
+        .then(resp => {
+            return {id: id}
+        }).catch(error => {
+        throw error;
+    })
+
+}
+
+
+export function delProduct(id) {
+    return {
+        type: PRODUCTS.DEL_PRODUCT,
+        payload: deleteCall(id)
+    }
+}
+
+
+;

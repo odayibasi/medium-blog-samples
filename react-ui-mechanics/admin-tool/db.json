@@ -8,7 +8,7 @@
   ],
   "products": [
     {
-      "code": 1,
+      "id": 1,
       "name": "Frozen yoghurt",
       "calories": 159,
       "fat": 6,
@@ -18,7 +18,7 @@
       "updatedDate": 1618815892370
     },
     {
-      "code": 2,
+      "id": 2,
       "name": "Ice cream sandwich",
       "calories": 237,
       "fat": 9,
@@ -28,7 +28,7 @@
       "updatedDate": 1618815892370
     },
     {
-      "code": 3,
+      "id": 3,
       "name": "Eclair",
       "calories": 262,
       "fat": 16,
@@ -38,7 +38,7 @@
       "updatedDate": 1618815892370
     },
     {
-      "code": 4,
+      "id": 4,
       "name": "Cupcake",
       "calories": 305,
       "fat": 3.7,
@@ -48,7 +48,7 @@
       "updatedDate": 1618815892370
     },
     {
-      "code": 5,
+      "id": 5,
       "name": "Gingerbread",
       "calories": 356,
       "fat": 16,
