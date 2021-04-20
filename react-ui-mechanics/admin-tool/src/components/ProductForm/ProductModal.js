@@ -17,8 +17,12 @@ export class ProductModal extends React.Component {
     componentWillReceiveProps(nextProps, nextContext) {
         const {isOpen: cOpen, selectedProduct: cProduct} = this.props;
         const {isOpen: nOpen, selectedProduct: nProduct} = nextProps;
-        if (!cOpen && nOpen && nProduct) {
-            this.setState({...nProduct})
+        if (!cOpen && nOpen) {
+            if(nProduct){
+                this.setState({...nProduct})
+            }else{
+                this.setState( {name: '', calories: 0, fat: 0, carbs: 0, protein: 0, price: 0})
+            }
         }
     }
 
