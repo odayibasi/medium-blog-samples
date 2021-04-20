@@ -39,6 +39,17 @@
       "id": 4,
       "creationDate": 1618815892370,
       "updatedDate": 1618903562268
+    },
+    {
+      "name": "Ekmek",
+      "calories": "10",
+      "fat": "12",
+      "carbs": "12",
+      "protein": "12",
+      "price": "3",
+      "creationDate": 1618903730671,
+      "updatedDate": 1618903730671,
+      "id": 5
     }
   ],
   "posts": [
