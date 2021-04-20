@@ -43,6 +43,23 @@ export class ProductModal extends React.Component {
     }
 
 
+    handleFat = (e) => {
+        const value = e.target.value;
+        this.setState({fat: value});
+    }
+
+
+    handleCarbs = (e) => {
+        const value = e.target.value;
+        this.setState({carbs: value});
+    }
+
+    handleProteins = (e) => {
+        const value = e.target.value;
+        this.setState({proteins: value});
+    }
+
+
     render() {
 
         const {isOpen, handleClose, handleApply, title, desc, applyTitle} = this.props;
@@ -72,7 +89,7 @@ export class ProductModal extends React.Component {
                         />
                         <TextField
                             id="standard-number"
-                            onChange={(e) => this.handleCalories(e,)}
+                            onChange={(e) => this.handleCalories(e)}
                             label="Calories"
                             type="number"
                             value={calories}
@@ -82,7 +99,7 @@ export class ProductModal extends React.Component {
                         />
                         <TextField
                             id="standard-number"
-                            onChange={(e) => this.handleInput(e, 'fat')}
+                            onChange={(e) => this.handleFat(e)}
                             label="Fat"
                             type="number"
                             value={fat}
@@ -92,7 +109,7 @@ export class ProductModal extends React.Component {
                         />
                         <TextField
                             id="standard-number"
-                            onChange={(e) => this.handleInput(e, 'carbs')}
+                            onChange={(e) => this.handleCarbs(e)}
                             label="Carbs"
                             type="number"
                             value={carbs}
@@ -102,7 +119,7 @@ export class ProductModal extends React.Component {
                         />
                         <TextField
                             id="standard-number"
-                            onChange={(e) => this.handleInput(e, 'protein')}
+                            onChange={(e) => this.handleProteins(e)}
                             label="Protein"
                             type="number"
                             value={protein}
