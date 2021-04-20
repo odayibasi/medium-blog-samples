@@ -8,34 +8,37 @@
   ],
   "products": [
     {
-      "id": 2,
-      "name": "Ice cream sandwich",
+      "name": "Dondurma",
       "calories": 237,
       "fat": 9,
       "carbs": 37,
       "protein": 4.3,
+      "price": "10",
+      "id": 2,
       "creationDate": 1618815892370,
-      "updatedDate": 1618815892370
+      "updatedDate": 1618903528913
     },
     {
-      "name": "Eclair4",
+      "name": "Pasta",
       "calories": 262,
       "fat": "18",
       "carbs": "26",
       "protein": "8",
+      "price": "50",
       "id": 3,
       "creationDate": 1618815892370,
-      "updatedDate": 1618903075753
+      "updatedDate": 1618903541879
     },
     {
-      "name": "Cupcake5",
+      "name": "Kek",
       "calories": 305,
       "fat": 3.7,
       "carbs": 67,
       "protein": 4.3,
+      "price": "20",
       "id": 4,
       "creationDate": 1618815892370,
-      "updatedDate": 1618903083570
+      "updatedDate": 1618903562268
     }
   ],
   "posts": [

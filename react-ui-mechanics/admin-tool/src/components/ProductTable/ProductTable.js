@@ -76,6 +76,7 @@ export class ProductTable extends React.Component {
                                 <TableCell align="right">Fat&nbsp;(g)</TableCell>
                                 <TableCell align="right">Carbs&nbsp;(g)</TableCell>
                                 <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                                <TableCell align="right">Price&nbsp;(TL)</TableCell>
                                 <TableCell align="right">Created</TableCell>
                                 <TableCell align="right">Updated</TableCell>
                                 <TableCell align="right">Actions</TableCell>
@@ -90,6 +91,7 @@ export class ProductTable extends React.Component {
                                     <TableCell align="right">{row.fat}</TableCell>
                                     <TableCell align="right">{row.carbs}</TableCell>
                                     <TableCell align="right">{row.protein}</TableCell>
+                                    <TableCell align="right">{row.price}</TableCell>
                                     <TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
                                     <TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
                                     <TableCell align="right">

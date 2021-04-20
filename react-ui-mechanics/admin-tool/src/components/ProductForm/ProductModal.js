@@ -10,7 +10,7 @@ export class ProductModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: '', calories: 0, fat: 0, carbs: 0, protein: 0}
+        this.state = {name: '', calories: 0, fat: 0, carbs: 0, protein: 0, price: 0}
     }
 
 
@@ -49,6 +49,13 @@ export class ProductModal extends React.Component {
         this.setState({protein: value});
     }
 
+
+    handlePrice = (e) => {
+        const value = e.target.value;
+        this.setState({price: value});
+    }
+
+
     handleApply = () => {
         const newProduct = {...this.state};
         this.props.handleApply(newProduct);
@@ -59,7 +66,7 @@ export class ProductModal extends React.Component {
     render() {
 
         const {isOpen, handleClose, title, desc, applyTitle} = this.props;
-        const {id, name, calories, fat, carbs, protein} = this.state;
+        const {id, name, calories, fat, carbs, protein, price} = this.state;
 
         return (
             <div>
@@ -127,6 +134,16 @@ export class ProductModal extends React.Component {
                             label="Protein"
                             type="number"
                             value={protein}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                        <TextField
+                            id="standard-number"
+                            onChange={(e) => this.handlePrice(e)}
+                            label="Price (TL)"
+                            type="number"
+                            value={price}
                             InputLabelProps={{
                                 shrink: true,
                             }}
