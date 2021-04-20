@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {ProductTable} from 'components/ProductTable/ProductTable'
-import {getProducts, dispatchDelProduct} from 'store/actions'
+import {getProducts, dispatchDelProduct, updProduct} from 'store/actions'
 import {withRouter} from "react-router";
 
 
@@ -12,6 +12,8 @@ const mapDispatchToProps = dispatch => (
     {
         getProducts: (username) => dispatch(getProducts(username)),
         delProduct: (id) => dispatchDelProduct(dispatch, id),
+        updateProduct: (product) => dispatch(updProduct(product)),
+
     }
 )
 

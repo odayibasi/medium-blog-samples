@@ -10,26 +10,16 @@ export class ProductModal extends React.Component {
 
     constructor(props) {
         super(props);
-        const {mode} = this.props;
+        this.state = {name: '', calories: 0, fat: 0, carbs: 0, protein: 0}
+    }
 
-        if (mode === 'edit') {
-            this.state = {
-                name: '',
-                calories: 0,
-                fat: 0,
-                carbs: 0,
-                protein: 0,
-            }
-        } else {
-            this.state = {
-                name: '',
-                calories: 0,
-                fat: 0,
-                carbs: 0,
-                protein: 0,
-            }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        const {isOpen: cOpen, selectedProduct: cProduct} = this.props;
+        const {isOpen: nOpen, selectedProduct: nProduct} = nextProps;
+        if (!cOpen && nOpen && nProduct) {
+            this.setState({...nProduct})
         }
-
     }
 
     handleName = (e) => {
@@ -56,11 +46,11 @@ export class ProductModal extends React.Component {
 
     handleProteins = (e) => {
         const value = e.target.value;
-        this.setState({proteins: value});
+        this.setState({protein: value});
     }
 
-    handleApply=()=>{
-        const newProduct={...this.state};
+    handleApply = () => {
+        const newProduct = {...this.state};
         this.props.handleApply(newProduct);
 
     }
@@ -69,7 +59,7 @@ export class ProductModal extends React.Component {
     render() {
 
         const {isOpen, handleClose, title, desc, applyTitle} = this.props;
-        const {name, calories, fat, carbs, protein} = this.state;
+        const {id, name, calories, fat, carbs, protein} = this.state;
 
         return (
             <div>
@@ -83,6 +73,14 @@ export class ProductModal extends React.Component {
                         <DialogContentText>
                             {desc}
                         </DialogContentText>
+                        <TextField
+                            margin="dense"
+                            id="id_of_product"
+                            label="Id"
+                            type="text"
+                            value={id}
+                            disabled
+                        />
                         <TextField
                             onChange={(e) => this.handleName(e)}
                             autoFocus

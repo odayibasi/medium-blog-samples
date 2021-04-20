@@ -18,24 +18,24 @@
       "updatedDate": 1618815892370
     },
     {
-      "id": 3,
-      "name": "Eclair",
+      "name": "Eclair4",
       "calories": 262,
-      "fat": 16,
-      "carbs": 24,
-      "protein": 6,
+      "fat": "18",
+      "carbs": "26",
+      "protein": "8",
+      "id": 3,
       "creationDate": 1618815892370,
-      "updatedDate": 1618815892370
+      "updatedDate": 1618903075753
     },
     {
-      "id": 4,
-      "name": "Cupcake",
+      "name": "Cupcake5",
       "calories": 305,
       "fat": 3.7,
       "carbs": 67,
       "protein": 4.3,
+      "id": 4,
       "creationDate": 1618815892370,
-      "updatedDate": 1618815892370
+      "updatedDate": 1618903083570
     }
   ],
   "posts": [

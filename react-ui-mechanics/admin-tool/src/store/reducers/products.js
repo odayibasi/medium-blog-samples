@@ -38,6 +38,20 @@ export default function products(state = initialState, action) {
                 error: null,
                 products: nextProducts
             };
+
+        case PRODUCTS.UPDATE_PRODUCT_FULFILLED:
+            const productsClone = [...state.products];
+            const index = productsClone.findIndex(el => el.id === action.payload.data.id);
+            productsClone[index] = action.payload.data;
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                error: null,
+                products: productsClone
+            };
+
+
         case PRODUCTS.DEL_PRODUCT_FULFILLED:
             const products = [...state.products];
             const filtered = products.filter(el => el.id !== action.payload.data.id);
