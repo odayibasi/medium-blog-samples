@@ -59,10 +59,16 @@ export class ProductModal extends React.Component {
         this.setState({proteins: value});
     }
 
+    handleApply=()=>{
+        const newProduct={...this.state};
+        this.props.handleApply(newProduct);
+
+    }
+
 
     render() {
 
-        const {isOpen, handleClose, handleApply, title, desc, applyTitle} = this.props;
+        const {isOpen, handleClose, title, desc, applyTitle} = this.props;
         const {name, calories, fat, carbs, protein} = this.state;
 
         return (
@@ -134,7 +140,7 @@ export class ProductModal extends React.Component {
                         <Button onClick={handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onClick={handleApply} color="primary">
+                        <Button onClick={this.handleApply} color="primary">
                             {applyTitle}
                         </Button>
                     </DialogActions>

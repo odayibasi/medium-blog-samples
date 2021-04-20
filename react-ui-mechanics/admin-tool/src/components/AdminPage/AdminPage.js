@@ -25,9 +25,10 @@ export class AdminPage extends React.Component {
     }
 
     handleModalApply = (product) => {
-        const {products} = this.props;
+        debugger;
+        const {products} = this.props.products;
         let newId = 0;
-        if (products.length > 0) {
+        if (Array.isArray(products) && products.length > 0) {
             const id = products[products.length - 1].id;
             newId = id + 1;
         }

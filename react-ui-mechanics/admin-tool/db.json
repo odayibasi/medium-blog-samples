@@ -36,16 +36,6 @@
       "protein": 4.3,
       "creationDate": 1618815892370,
       "updatedDate": 1618815892370
-    },
-    {
-      "id": 5,
-      "name": "Gingerbread",
-      "calories": 356,
-      "fat": 16,
-      "carbs": 49,
-      "protein": 3.9,
-      "creationDate": 1618815892370,
-      "updatedDate": 1618815892370
     }
   ],
   "posts": [

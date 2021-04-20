@@ -10,17 +10,17 @@ export function getProducts() {
 }
 
 
-export function addProduct(id, product) {
+export function addProduct(product) {
     return {
         type: PRODUCTS.ADD_PRODUCT,
-        payload: axios.post(`http://localhost:3004/products/${id}`, product, {})
+        payload: axios.post(`http://localhost:3004/products/`, product, {})
     }
 }
 
-export function updProduct(id, product) {
+export function updProduct(product) {
     return {
         type: PRODUCTS.UPDATE_PRODUCT,
-        payload: axios.put(`http://localhost:3004/products/${id}`, product, {})
+        payload: axios.put(`http://localhost:3004/products/${product.id}`, product, {})
     }
 }
 

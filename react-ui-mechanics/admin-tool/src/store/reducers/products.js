@@ -28,12 +28,15 @@ export default function products(state = initialState, action) {
                 products: [...action.payload.data]
             };
         case PRODUCTS.ADD_PRODUCT_FULFILLED:
+            const nextProducts = [...state.products];
+            nextProducts.push(action.payload.data);
+
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 error: null,
-                products: [...state.products, ...action.payload.data]
+                products: nextProducts
             };
         case PRODUCTS.DEL_PRODUCT_FULFILLED:
             const products = [...state.products];
