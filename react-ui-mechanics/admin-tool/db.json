@@ -8,6 +8,17 @@
   ],
   "products": [
     {
+      "name": "Ketcap",
+      "calories": 237,
+      "fat": 9,
+      "carbs": 37,
+      "protein": 4.3,
+      "price": "10",
+      "id": 1,
+      "creationDate": 1618815892370,
+      "updatedDate": 1618903528913
+    },
+    {
       "name": "Dondurma",
       "calories": 237,
       "fat": 9,
@@ -50,6 +61,39 @@
       "creationDate": 1618903730671,
       "updatedDate": 1618903730671,
       "id": 5
+    },
+    {
+      "name": "Mayonez",
+      "calories": "10",
+      "fat": "12",
+      "carbs": "12",
+      "protein": "12",
+      "price": "3",
+      "creationDate": 1618903730671,
+      "updatedDate": 1618903730671,
+      "id": 6
+    },
+    {
+      "name": "Salca",
+      "calories": "10",
+      "fat": "12",
+      "carbs": "12",
+      "protein": "12",
+      "price": "3",
+      "creationDate": 1618903730671,
+      "updatedDate": 1618903730671,
+      "id": 7
+    },
+    {
+      "name": "Makarna",
+      "calories": "10",
+      "fat": "12",
+      "carbs": "12",
+      "protein": "12",
+      "price": "3",
+      "creationDate": 1618903730671,
+      "updatedDate": 1618903730671,
+      "id": 8
     }
   ],
   "posts": [

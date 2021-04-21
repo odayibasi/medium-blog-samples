@@ -10,6 +10,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Paper from '@material-ui/core/Paper';
 import {ProductModal} from "../ProductForm/ProductModal";
+import {TablePagination} from "@material-ui/core";
 
 
 export class ProductTable extends React.Component {
@@ -19,6 +20,8 @@ export class ProductTable extends React.Component {
         this.state = {
             isModalOpen: false,
             selectedProduct: null,
+            page: 0,
+            rowsPerPage: 2,
         }
     }
 
@@ -58,11 +61,29 @@ export class ProductTable extends React.Component {
 
     }
 
+    handleChangePage = (event, pageNumber) => {
+        this.setState({page: pageNumber});
+    }
+
+
+    handleChangeRowsPerPage = (event) => {
+        this.setState({rowsPerPage: event.target.value})
+    }
+
 
     render() {
 
         const {products, fetching, fetched, error} = this.props.products;
+        const {page, rowsPerPage} = this.state;
 
+        let filteredProducts = [];
+        products.forEach((el, index) => {
+            const minIndex = page * rowsPerPage;
+            const maxIndex = (page + 1) * rowsPerPage;
+            if (index >= minIndex && index < maxIndex) {
+                filteredProducts.push(el);
+            }
+        });
 
         return (
             <div>
@@ -83,7 +104,7 @@ export class ProductTable extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {products.map((row) => (
+                            {filteredProducts.map((row) => (
                                 <TableRow key={row.name}>
                                     <TableCell component="th" scope="row">{row.id}</TableCell>
                                     <TableCell component="th" scope="row">{row.name}</TableCell>
@@ -111,7 +132,17 @@ export class ProductTable extends React.Component {
                             ))}
                         </TableBody>
                     </Table>
+                    <TablePagination
+                        component="div"
+                        count={products.length}
+                        page={page}
+                        rowsPerPageOptions={[2, 5, 10]}
+                        onChangePage={this.handleChangePage}
+                        rowsPerPage={rowsPerPage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
                 </TableContainer>
+
                 <ProductModal
                     isOpen={this.state.isModalOpen}
                     handleClose={this.handleModalClose}
