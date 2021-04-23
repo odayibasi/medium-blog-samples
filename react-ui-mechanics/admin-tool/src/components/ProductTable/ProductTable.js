@@ -11,7 +11,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import {ProductModal} from "../ProductForm/ProductModal";
-import {Checkbox, TablePagination, TextField} from "@material-ui/core";
+import {Button, Checkbox, TablePagination, TextField} from "@material-ui/core";
 import "./ProductTable.scss"
 
 
@@ -61,6 +61,13 @@ export class ProductTable extends React.Component {
 	}
 
 
+	handleSelectedRowDeletion = () => {
+		const {selectedRows} = this.state;
+		selectedRows.forEach(rowId => this.props.delProduct(rowId));
+	}
+
+
+
 	formatDate = (date) => {
 		const formattedDate = (new Date(date)).toISOString();
 		return formattedDate;
@@ -83,7 +90,8 @@ export class ProductTable extends React.Component {
 		if (e.target.checked) {
 			cloneSelectedRows.push(rowId);
 		} else {
-			cloneSelectedRows.filter(el => el.id !== rowId);
+			const index = cloneSelectedRows.findIndex(el => el.id === rowId);
+			cloneSelectedRows.splice(index, 1);
 		}
 		this.setState({selectedRows: cloneSelectedRows})
 	}
@@ -149,6 +157,8 @@ export class ProductTable extends React.Component {
 							   onChange={(e) => {
 								   this.setState({searchText: e.target.value})
 							   }}/>
+					<Button variant="contained" color="secondary" onClick={this.handleSelectedRowDeletion}>Delete
+						Rows</Button>
 					<Table className='products-table' aria-label="simple table">
 						<TableHead>
 							<TableRow>
