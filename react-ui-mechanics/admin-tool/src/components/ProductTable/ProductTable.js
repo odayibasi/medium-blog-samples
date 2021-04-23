@@ -11,7 +11,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import {ProductModal} from "../ProductForm/ProductModal";
-import {TablePagination, TextField} from "@material-ui/core";
+import {Checkbox, TablePagination, TextField} from "@material-ui/core";
 import "./ProductTable.scss"
 
 
@@ -26,7 +26,8 @@ export class ProductTable extends React.Component {
 			rowsPerPage: 2,
 			searchText: '',
 			orderBy: '',
-			order: ''
+			order: '',
+			selectedRows: []
 		}
 	}
 
@@ -76,8 +77,29 @@ export class ProductTable extends React.Component {
 	}
 
 
-	render() {
+	handleSelectedRow = (e, rowId) => {
+		const {selectedRows} = this.state;
+		const cloneSelectedRows = [...selectedRows];
+		if (e.target.checked) {
+			cloneSelectedRows.push(rowId);
+		} else {
+			cloneSelectedRows.filter(el => el.id !== rowId);
+		}
+		this.setState({selectedRows: cloneSelectedRows})
+	}
 
+	handleSelectedPage = (e) => {
+		if (e.target.checked) {
+			const paginatedProducts = this.getPaginatedProducts();
+			const selectedRows = paginatedProducts.map(el => el.id);
+			this.setState({selectedRows: selectedRows})
+		} else {
+			this.setState({selectedRows: []});
+		}
+
+	}
+
+	getPaginatedProducts = () => {
 		const {products, fetching, fetched, error} = this.props.products;
 		const {page, rowsPerPage, searchText} = this.state;
 
@@ -103,6 +125,22 @@ export class ProductTable extends React.Component {
 				paginatedProducts.push(el);
 			}
 		});
+		return paginatedProducts;
+	}
+
+
+	render() {
+
+		const {products, fetching, fetched, error} = this.props.products;
+		const {page, rowsPerPage} = this.state;
+
+
+		const paginatedProducts = this.getPaginatedProducts();
+		const {selectedRows} = this.state;
+		const pageSelectionFlag = paginatedProducts.every(el => {
+			return selectedRows.includes(el.id)
+		});
+
 
 		return (
 			<div className='product-table-container'>
@@ -114,6 +152,8 @@ export class ProductTable extends React.Component {
 					<Table className='products-table' aria-label="simple table">
 						<TableHead>
 							<TableRow>
+								<TableCell onClick={this.handleSelectedPage} padding="checkbox"><Checkbox
+									checked={pageSelectionFlag}/></TableCell>
 								<TableCell>ID</TableCell>
 								<TableCell>Name</TableCell>
 								<TableCell align="right"><TableSortLabel
@@ -137,31 +177,35 @@ export class ProductTable extends React.Component {
 						</TableHead>
 						<TableBody>
 							{paginatedProducts.map((row) => (
-								<TableRow key={row.name}>
-									<TableCell component="th" scope="row">{row.id}</TableCell>
-									<TableCell component="th" scope="row">{row.name}</TableCell>
-									<TableCell align="right">{row.calories}</TableCell>
-									<TableCell align="right">{row.fat}</TableCell>
-									<TableCell align="right">{row.carbs}</TableCell>
-									<TableCell align="right">{row.protein}</TableCell>
-									<TableCell align="right">{row.price}</TableCell>
-									<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
-									<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
-									<TableCell align="right">
-										<IconButton aria-label="edit" className='edit-btn'
-													onClick={(e) => this.handleEdit(row.id)}
-										>
-											<EditIcon fontSize="small"/>
-										</IconButton>
-										<IconButton aria-label="delete" className='delete-btn'
-													onClick={(e) => this.handleDelete(row.id)}
-										>
-											<DeleteIcon fontSize="small"/>
-										</IconButton>
+									<TableRow key={row.name}>
+										<TableCell padding="checkbox"><Checkbox onClick={(e) => {
+											this.handleSelectedRow(e, row.id)
+										}} checked={selectedRows.includes(row.id)}/></TableCell>
+										<TableCell component="th" scope="row">{row.id}</TableCell>
+										<TableCell scope="right">{row.name}</TableCell>
+										<TableCell align="right">{row.calories}</TableCell>
+										<TableCell align="right">{row.fat}</TableCell>
+										<TableCell align="right">{row.carbs}</TableCell>
+										<TableCell align="right">{row.protein}</TableCell>
+										<TableCell align="right">{row.price}</TableCell>
+										<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
+										<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
+										<TableCell align="right">
+											<IconButton aria-label="edit" className='edit-btn'
+														onClick={(e) => this.handleEdit(row.id)}
+											>
+												<EditIcon fontSize="small"/>
+											</IconButton>
+											<IconButton aria-label="delete" className='delete-btn'
+														onClick={(e) => this.handleDelete(row.id)}
+											>
+												<DeleteIcon fontSize="small"/>
+											</IconButton>
 
-									</TableCell>
-								</TableRow>
-							))}
+										</TableCell>
+									</TableRow>
+								)
+							)}
 						</TableBody>
 					</Table>
 					<TablePagination
