@@ -1,6 +1,6 @@
 import React from 'react';
 import {routes} from "routes";
-import {ProductTableContainer} from "containers";
+import {ProductTableContainer,SideMenuContainer} from "containers";
 import {ProductModal} from "../ProductForm/ProductModal";
 import './AdminPage.scss'
 
@@ -13,13 +13,7 @@ export class AdminPage extends React.Component {
         }
     }
 
-
-    handleLogout = () => {
-        this.props.resetUser();
-        this.props.history.push(routes.landing.path);
-    }
-
-
+    
     handleModalClose = () => {
         this.setState({isModalOpen: false})
     }
@@ -50,6 +44,7 @@ export class AdminPage extends React.Component {
         return (
             <div>
                 <h1>Admin Page</h1>
+                <SideMenuContainer/>
                 <button onClick={this.handleLogout}>Logout</button>
                 <button onClick={this.handleNewProduct}>New Product</button>
                 <ProductTableContainer/>

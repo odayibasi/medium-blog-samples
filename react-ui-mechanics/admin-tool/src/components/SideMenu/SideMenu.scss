@@ -1,0 +1,9 @@
+.sidebar-menu-container {
+  .nav-list {
+    width: 50px;
+
+    &:hover {
+      width: 250px;
+    }
+  }
+}
