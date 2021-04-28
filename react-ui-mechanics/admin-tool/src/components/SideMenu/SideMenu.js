@@ -47,17 +47,14 @@ export class SideMenu extends React.Component {
 
 
 	generateNavlist = () => (
-		<div
-			className='nav-list'
-			role="presentation"
-		>
+		<div className='nav-list'>
 			<List>
 				<ListItem onClick={this.handleAdmin} button key='admin-page-item'>
 					<ListItemIcon><SupervisorAccountIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Admin Page'/>
 				</ListItem>
-				
-				
+
+
 				<ListItem onClick={this.handleDummy} button key='dummy-page-1'>
 					<ListItemIcon><PagesIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dummy 1'/>
@@ -73,8 +70,11 @@ export class SideMenu extends React.Component {
 					<ListItemIcon><PagesIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dummy 3'/>
 				</ListItem>
+				
+			</List>
 
 
+			<List>
 				<ListItem onClick={this.handleLogout} button key='logout-item'>
 					<ListItemIcon><ExitToAppIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Logout'/>
