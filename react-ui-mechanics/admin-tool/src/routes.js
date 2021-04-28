@@ -7,5 +7,9 @@ export const routes = {
         path: "/admin",
         title: "Admin"
     },
+    dummy: {
+        path: "/dummy",
+        title: "Dummy"
+    },
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import {routes} from "routes";
 import {ProductTableContainer,SideMenuContainer} from "containers";
 import {ProductModal} from "../ProductForm/ProductModal";
 import './AdminPage.scss'
@@ -45,7 +44,6 @@ export class AdminPage extends React.Component {
             <div>
                 <h1>Admin Page</h1>
                 <SideMenuContainer/>
-                <button onClick={this.handleLogout}>Logout</button>
                 <button onClick={this.handleNewProduct}>New Product</button>
                 <ProductTableContainer/>
                 <ProductModal

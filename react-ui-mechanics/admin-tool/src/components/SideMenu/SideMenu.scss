@@ -2,8 +2,17 @@
   .nav-list {
     width: 50px;
 
+    .list-text {
+      display: none;
+    }
+
     &:hover {
       width: 250px;
+
+      .list-text {
+        display: block;
+      }
+
     }
   }
 }
