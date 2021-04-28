@@ -36,7 +36,7 @@ export class SideMenu extends React.Component {
 	render() {
 		return (
 			<div>
-				<Drawer className='sidebar-menu-container' anchor='right'
+				<Drawer className='sidebar-menu-container' anchor='left'
 				        variant="permanent"
 				        open>
 					{this.generateNavlist()}

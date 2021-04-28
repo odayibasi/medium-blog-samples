@@ -1,0 +1,18 @@
+$sidebar-width:50px;
+
+.page-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .left-side {
+    width: $sidebar-width;
+    height: 100%;
+    display: flex;
+  }
+
+  .right-side {
+    width: calc(100% -  #{$sidebar-width});
+    height: 100%;
+  }
+}
