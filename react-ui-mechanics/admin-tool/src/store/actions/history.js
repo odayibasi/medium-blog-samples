@@ -10,4 +10,10 @@ export function getHistory() {
 }
 
 
+export function addHistoryItem(historyItem) {
+    return {
+        type: HISTORY.ADD_HISTORY_ITEM,
+        payload: axios.post(`http://localhost:3004/history/`, historyItem, {})
+    }
+}
 

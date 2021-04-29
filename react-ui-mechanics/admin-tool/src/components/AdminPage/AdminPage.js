@@ -32,6 +32,12 @@ export class AdminPage extends React.Component {
 
 		this.setState({isModalOpen: false})
 		this.props.addProduct(product);
+		this.props.addHistoryItem({
+			"productId": product.id,
+			"username": "onur",
+			"updatedDate": product.updatedDate,
+			"action": "New"
+		})
 
 	}
 

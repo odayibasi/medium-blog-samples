@@ -53,6 +53,12 @@ export class ProductTable extends React.Component {
 		product.updatedDate = (new Date()).getTime();
 		this.setState({isModalOpen: false, selectedProduct: null})
 		this.props.updateProduct(product);
+		this.props.addHistoryItem({
+			"productId": product.id,
+			"username": "onur",
+			"updatedDate": product.updatedDate,
+			"action": "Updated"
+		})
 	}
 
 
@@ -65,7 +71,6 @@ export class ProductTable extends React.Component {
 		const {selectedRows} = this.state;
 		selectedRows.forEach(rowId => this.props.delProduct(rowId));
 	}
-
 
 
 	formatDate = (date) => {
@@ -154,9 +159,9 @@ export class ProductTable extends React.Component {
 			<div className='product-table-container'>
 				<TableContainer component={Paper}>
 					<TextField id="standard-search" label="Search field" type="search"
-							   onChange={(e) => {
-								   this.setState({searchText: e.target.value})
-							   }}/>
+					           onChange={(e) => {
+						           this.setState({searchText: e.target.value})
+					           }}/>
 					<Button variant="contained" color="secondary" onClick={this.handleSelectedRowDeletion}>Delete
 						Rows</Button>
 					<Table className='products-table' aria-label="simple table">
@@ -202,12 +207,12 @@ export class ProductTable extends React.Component {
 										<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
 										<TableCell align="right">
 											<IconButton aria-label="edit" className='edit-btn'
-														onClick={(e) => this.handleEdit(row.id)}
+											            onClick={(e) => this.handleEdit(row.id)}
 											>
 												<EditIcon fontSize="small"/>
 											</IconButton>
 											<IconButton aria-label="delete" className='delete-btn'
-														onClick={(e) => this.handleDelete(row.id)}
+											            onClick={(e) => this.handleDelete(row.id)}
 											>
 												<DeleteIcon fontSize="small"/>
 											</IconButton>

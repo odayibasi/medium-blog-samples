@@ -42,14 +42,14 @@
     },
     {
       "name": "Kek",
-      "calories": "307",
+      "calories": "309",
       "fat": 3.7,
-      "carbs": 67,
+      "carbs": "68",
       "protein": 4.3,
       "price": "20",
       "id": 4,
       "creationDate": 1618815892370,
-      "updatedDate": 1619651925172
+      "updatedDate": 1619705590155
     },
     {
       "name": "Ekmek",
@@ -110,8 +110,14 @@
       "username": "onur",
       "updatedDate": 1618903730671,
       "action": "Update"
+    },
+    {
+      "productId": 4,
+      "username": "onur",
+      "updatedDate": 1619705590155,
+      "action": "Updated",
+      "id": 3
     }
-
   ],
   "comments": [
     {

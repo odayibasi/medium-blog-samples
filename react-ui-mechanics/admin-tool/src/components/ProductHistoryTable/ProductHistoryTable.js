@@ -5,13 +5,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
-import {ProductModal} from "../ProductForm/ProductModal";
-import {Button, Checkbox, TablePagination, TextField} from "@material-ui/core";
+import {Box, Button, Checkbox, Collapse, TablePagination, TextField} from "@material-ui/core";
 import "./ProductHistoryTable.scss"
 
 
@@ -27,7 +23,8 @@ export class ProductHistoryTable extends React.Component {
 			searchText: '',
 			orderBy: '',
 			order: '',
-			selectedRows: []
+			selectedRows: [],
+			rowDetailOpenStatusMap: new Map(),
 		}
 	}
 
@@ -35,6 +32,15 @@ export class ProductHistoryTable extends React.Component {
 	componentDidMount() {
 		this.props.getProducts();
 		this.props.getHistory();
+	}
+
+
+	handleRowDetailsShowHide = (rowId) => {
+		const {rowDetailOpenStatusMap} = this.state;
+		const status = rowDetailOpenStatusMap.get(rowId);
+		const newOpenStatusMap = new Map(rowDetailOpenStatusMap);
+		newOpenStatusMap.set(rowId, !status);
+		this.setState({rowDetailOpenStatusMap: newOpenStatusMap});
 	}
 
 
@@ -95,19 +101,82 @@ export class ProductHistoryTable extends React.Component {
 	}
 
 
+	renderTableRow = (row) => {
+		const {history} = this.props.history;
+		const historyExist = history.some(el => el.productId == row.id);
+
+		const {rowDetailOpenStatusMap} = this.state;
+		const status = rowDetailOpenStatusMap.get(row.id);
+		const titleShowHide = status ? 'Hide History' : 'Show History';
+		const colorShowHide = status ? 'secondary' : 'primary';
+
+		return (
+			<TableRow key={row.name}>
+				<TableCell component="th" scope="row">{row.id}</TableCell>
+				<TableCell scope="right">{row.name}</TableCell>
+				<TableCell align="right">{row.calories}</TableCell>
+				<TableCell align="right">{row.fat}</TableCell>
+				<TableCell align="right">{row.carbs}</TableCell>
+				<TableCell align="right">{row.protein}</TableCell>
+				<TableCell align="right">{row.price}</TableCell>
+				<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
+				<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
+				<TableCell align="right">
+					{historyExist &&
+					<Button style={{minWidth: '160px'}} onClick={(e) => this.handleRowDetailsShowHide(row.id)}
+					        variant="contained" color={colorShowHide}>{titleShowHide}</Button>}
+				</TableCell>
+			</TableRow>
+		)
+	}
+
+	renderTableRowDetails = (row) => {
+
+		const {history} = this.props.history;
+		const historyElements = history.filter(el => el.productId == row.id);
+
+		const {rowDetailOpenStatusMap} = this.state;
+		const status = rowDetailOpenStatusMap.get(row.id);
+
+		return (
+			<TableRow>
+				<TableCell style={{backgroundColor: "lightblue", paddingBottom: 0, paddingTop: 0}} colSpan={10}>
+					<Collapse in={status} timeout="auto" unmountOnExit>
+						<Box margin={1}>
+							<Table size="small" aria-label="purchases">
+								<TableHead>
+									<TableRow>
+										<TableCell>Date</TableCell>
+										<TableCell>User</TableCell>
+										<TableCell align='right'>Action</TableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody>
+									{historyElements.map(historyRow => (
+										<TableRow key={historyRow.id}>
+											<TableCell component="th" scope="row">
+												{historyRow.updatedDate}
+											</TableCell>
+											<TableCell>{historyRow.username}</TableCell>
+											<TableCell align="right">{historyRow.action}</TableCell>
+										</TableRow>
+									))}
+								</TableBody>
+							</Table>
+
+						</Box>
+					</Collapse>
+				</TableCell>
+			</TableRow>
+		)
+	}
+
+
 	render() {
 
 		const {products} = this.props.products;
-		const {history} = this.props.history;
-
 		const {page, rowsPerPage} = this.state;
-
-
 		const paginatedProducts = this.getPaginatedProducts();
-		const {selectedRows} = this.state;
-		const pageSelectionFlag = paginatedProducts.every(el => {
-			return selectedRows.includes(el.id)
-		});
 
 
 		return (
@@ -143,26 +212,10 @@ export class ProductHistoryTable extends React.Component {
 						</TableHead>
 						<TableBody>
 							{paginatedProducts.map((row) => {
-
-									const historyExist = history.some(el => el.productId == row.id);
-									console.log(historyExist);
-									return (
-										<TableRow key={row.name}>
-											<TableCell component="th" scope="row">{row.id}</TableCell>
-											<TableCell scope="right">{row.name}</TableCell>
-											<TableCell align="right">{row.calories}</TableCell>
-											<TableCell align="right">{row.fat}</TableCell>
-											<TableCell align="right">{row.carbs}</TableCell>
-											<TableCell align="right">{row.protein}</TableCell>
-											<TableCell align="right">{row.price}</TableCell>
-											<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
-											<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
-											<TableCell align="right">
-												{historyExist &&
-												<Button variant="contained" color="primary">Show History</Button>}
-											</TableCell>
-										</TableRow>
-									)
+									return (<>
+										{this.renderTableRow(row)}
+										{this.renderTableRowDetails(row)}
+									</>)
 								}
 							)}
 						</TableBody>
