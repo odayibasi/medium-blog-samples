@@ -23,7 +23,7 @@ export class ProductHistoryTable extends React.Component {
 			isModalOpen: false,
 			selectedProduct: null,
 			page: 0,
-			rowsPerPage: 2,
+			rowsPerPage: 10,
 			searchText: '',
 			orderBy: '',
 			order: '',
@@ -34,8 +34,9 @@ export class ProductHistoryTable extends React.Component {
 
 	componentDidMount() {
 		this.props.getProducts();
+		this.props.getHistory();
 	}
-	
+
 
 	formatDate = (date) => {
 		const formattedDate = (new Date(date)).toISOString();
@@ -52,7 +53,7 @@ export class ProductHistoryTable extends React.Component {
 		this.setState({rowsPerPage: event.target.value})
 	}
 
-	
+
 	handleSelectedPage = (e) => {
 		if (e.target.checked) {
 			const paginatedProducts = this.getPaginatedProducts();
@@ -96,7 +97,9 @@ export class ProductHistoryTable extends React.Component {
 
 	render() {
 
-		const {products, fetching, fetched, error} = this.props.products;
+		const {products} = this.props.products;
+		const {history} = this.props.history;
+
 		const {page, rowsPerPage} = this.state;
 
 
@@ -111,9 +114,9 @@ export class ProductHistoryTable extends React.Component {
 			<div className='product-table-container'>
 				<TableContainer component={Paper}>
 					<TextField id="standard-search" label="Search field" type="search"
-							   onChange={(e) => {
-								   this.setState({searchText: e.target.value})
-							   }}/>
+					           onChange={(e) => {
+						           this.setState({searchText: e.target.value})
+					           }}/>
 					<Table className='products-table' aria-label="simple table">
 						<TableHead>
 							<TableRow>
@@ -139,22 +142,28 @@ export class ProductHistoryTable extends React.Component {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{paginatedProducts.map((row) => (
-									<TableRow key={row.name}>
-										<TableCell component="th" scope="row">{row.id}</TableCell>
-										<TableCell scope="right">{row.name}</TableCell>
-										<TableCell align="right">{row.calories}</TableCell>
-										<TableCell align="right">{row.fat}</TableCell>
-										<TableCell align="right">{row.carbs}</TableCell>
-										<TableCell align="right">{row.protein}</TableCell>
-										<TableCell align="right">{row.price}</TableCell>
-										<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
-										<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
-										<TableCell align="right">
-											<Button  variant="contained" color="primary">Show History</Button>
-										</TableCell>
-									</TableRow>
-								)
+							{paginatedProducts.map((row) => {
+
+									const historyExist = history.some(el => el.productId == row.id);
+									console.log(historyExist);
+									return (
+										<TableRow key={row.name}>
+											<TableCell component="th" scope="row">{row.id}</TableCell>
+											<TableCell scope="right">{row.name}</TableCell>
+											<TableCell align="right">{row.calories}</TableCell>
+											<TableCell align="right">{row.fat}</TableCell>
+											<TableCell align="right">{row.carbs}</TableCell>
+											<TableCell align="right">{row.protein}</TableCell>
+											<TableCell align="right">{row.price}</TableCell>
+											<TableCell align="right">{this.formatDate(row.creationDate)}</TableCell>
+											<TableCell align="right">{this.formatDate(row.updatedDate)}</TableCell>
+											<TableCell align="right">
+												{historyExist &&
+												<Button variant="contained" color="primary">Show History</Button>}
+											</TableCell>
+										</TableRow>
+									)
+								}
 							)}
 						</TableBody>
 					</Table>

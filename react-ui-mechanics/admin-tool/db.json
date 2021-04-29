@@ -100,14 +100,14 @@
     {
       "id": 1,
       "productId": "1",
-      "userId": "1",
+      "username": "onur",
       "updatedDate": 1618903730671,
       "action": "Update"
     },
     {
       "id": 2,
       "productId": "1",
-      "userId": "1",
+      "username": "onur",
       "updatedDate": 1618903730671,
       "action": "Update"
     }
