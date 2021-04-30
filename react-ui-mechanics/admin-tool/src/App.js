@@ -3,12 +3,13 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import {routes} from 'routes';
 import './App.css';
+import {DashboardPageContainer} from "./containers/DashboardPageContainer";
 
 class App extends React.Component {
 
 
 	render() {
-		const {landing, admin, dummy,history} = routes;
+		const {landing, admin, dummy,history,dashboard} = routes;
 		return (
 			<div className="App">
 				<Switch>
@@ -16,6 +17,7 @@ class App extends React.Component {
 					<Route exact path={admin.path}><AdminPageContainer/></Route>
 					<Route exact path={dummy.path}><DummyPageContainer/></Route>
 					<Route exact path={history.path}><HistoryPageContainer/></Route>
+					<Route exact path={dashboard.path}><DashboardPageContainer/></Route>
 				</Switch>
 			</div>
 		);

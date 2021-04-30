@@ -15,5 +15,9 @@ export const routes = {
 		path: "/history",
 		title: "Change History"
 	},
+	dashboard: {
+		path: "/dashboard",
+		title: "Dashboard"
+	},
 }
 
