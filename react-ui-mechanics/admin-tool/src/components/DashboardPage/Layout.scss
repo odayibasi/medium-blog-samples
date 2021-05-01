@@ -1,0 +1,17 @@
+.layout-container {
+  flexGrow: 1;
+
+  .MuiGrid-spacing-xs-3 {
+    margin: 0px;
+    width: 100%;
+
+    .paper {
+      padding: 20px;
+      text-align: center;
+      color: gray,
+    }
+
+  }
+
+
+}

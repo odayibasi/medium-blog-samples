@@ -1509,6 +1509,20 @@
     lodash "^4.17.11"
     react-motion "^0.5.2"
 
+"@nivo/calendar@^0.69.0":
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/@nivo/calendar/-/calendar-0.69.0.tgz#f8f8249e167be3af41a7c8aa06b14734b2b29ffd"
+  integrity sha512-tIPyt8vfzvL9g8dXltO+sAeSCpISkxrJthqZLQVuSMX1TLDZlGgkv/GI8d5TXcppwOiG2G0iuKZ5CKkweEXdIw==
+  dependencies:
+    "@nivo/legends" "0.69.0"
+    "@nivo/tooltip" "0.69.0"
+    d3-scale "^3.2.3"
+    d3-time "^1.0.10"
+    d3-time-format "^2.1.3"
+    lodash.isdate "^4.0.1"
+    lodash.memoize "^4.1.2"
+    lodash.range "^3.2.0"
+
 "@nivo/colors@0.69.0":
   version "0.69.0"
   resolved "https://registry.yarnpkg.com/@nivo/colors/-/colors-0.69.0.tgz#273fdb54bcc161d74741e7eea1931c0b22f95f7c"
@@ -1545,6 +1559,21 @@
   dependencies:
     lodash "^4.17.11"
 
+"@nivo/line@^0.69.0":
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/@nivo/line/-/line-0.69.0.tgz#530ac77f2b42545ba3217ca6f9e6ce474a8607bb"
+  integrity sha512-SRrYSqWZaHWO+7TKiQL+SUXIslO7mFSfD27Mwrnis36CknR7Db2b7RTQq9bfBXevmJlW9/yvxcnm7Bmm75zGBw==
+  dependencies:
+    "@nivo/annotations" "0.69.0"
+    "@nivo/axes" "0.69.0"
+    "@nivo/colors" "0.69.0"
+    "@nivo/legends" "0.69.0"
+    "@nivo/scales" "0.69.0"
+    "@nivo/tooltip" "0.69.0"
+    "@nivo/voronoi" "0.69.0"
+    d3-shape "^1.3.5"
+    react-spring "9.1.2"
+
 "@nivo/recompose@0.69.0":
   version "0.69.0"
   resolved "https://registry.yarnpkg.com/@nivo/recompose/-/recompose-0.69.0.tgz#1fbc5193267611ba8d9297784a40d73a69ee5f04"
@@ -1568,6 +1597,14 @@
   integrity sha512-thIObK1KajlZ7vVU5mgwEPRMBKLWh5a4u46i7qeg2nld5bRh54S//0M1U+PZS5t+xg1boE/iXWp2/MLXPxk2EQ==
   dependencies:
     react-spring "9.1.2"
+
+"@nivo/voronoi@0.69.0":
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/@nivo/voronoi/-/voronoi-0.69.0.tgz#12955dec8f6d649d96af361f0609f79b2ad653b9"
+  integrity sha512-z3qMtvVx7HVi/O1h5E+hEE7pCdt9ZUV6LxhiaNJ5f/XW+t41NyVbovgLj8Tl1ddtsum7De1BfHeLZA3GffjdKA==
+  dependencies:
+    d3-delaunay "^5.3.0"
+    d3-scale "^3.2.3"
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
@@ -4155,6 +4192,13 @@ d3-array@2, d3-array@^2.3.0:
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-2.0.0.tgz#8d625cab42ed9b8f601a1760a389f7ea9189d62e"
   integrity sha512-SPXi0TSKPD4g9tw0NMZFnR95XVgUZiBH+uUTqQuDu1OsE2zomHU7ho0FISciaPvosimixwHFl3WHLGabv6dDgQ==
 
+d3-delaunay@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/d3-delaunay/-/d3-delaunay-5.3.0.tgz#b47f05c38f854a4e7b3cea80e0bb12e57398772d"
+  integrity sha512-amALSrOllWVLaHTnDLHwMIiz0d1bBu9gZXd1FiLfXf8sHcX9jrcj81TVZOqD4UX7MgBZZ07c8GxzEgBpJqc74w==
+  dependencies:
+    delaunator "4"
+
 "d3-format@1 - 2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-2.0.0.tgz#a10bcc0f986c372b729ba447382413aabf5b0767"
@@ -4222,7 +4266,7 @@ d3-time-format@^2.1.3:
   dependencies:
     d3-time "1"
 
-d3-time@1, d3-time@^1.0.11:
+d3-time@1, d3-time@^1.0.10, d3-time@^1.0.11:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.1.0.tgz#b1e19d307dae9c900b7e5b25ffc5dcc249a8a0f1"
   integrity sha512-Xh0isrZ5rPYYdqhAVk8VLnMEidhz5aP7htAADH6MfzgmmicPkTo8LhkLxci61/lCB7n7UmE3bN0leRt+qvkLxA==
@@ -4375,6 +4419,11 @@ del@^4.1.1:
     p-map "^2.0.0"
     pify "^4.0.1"
     rimraf "^2.6.3"
+
+delaunator@4:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/delaunator/-/delaunator-4.0.1.tgz#3d779687f57919a7a418f8ab947d3bddb6846957"
+  integrity sha512-WNPWi1IRKZfCt/qIDMfERkDp93+iZEmOxN2yy4Jg+Xhv8SLk2UTqqbe1sfiipn0and9QrE914/ihdx82Y/Giag==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -7419,10 +7468,20 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
+lodash.isdate@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.isdate/-/lodash.isdate-4.0.1.tgz#35a543673b9d76110de4114b32cc577048a7f366"
+  integrity sha1-NaVDZzuddhEN5BFLMsxXcEin82Y=
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
+
+lodash.range@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.range/-/lodash.range-3.2.0.tgz#f461e588f66683f7eadeade513e38a69a565a15d"
+  integrity sha1-9GHliPZmg/fq3q3lE+OKaaVloV0=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
