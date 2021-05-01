@@ -43,22 +43,22 @@ function App() {
                 <InhGreenComponent/>
                 <InhRedComponent/>
             </div>
-
+            
             <div className='row-container'>
                 <strong>HoC</strong>
                 <HocBlueComponent/>
                 <HocGreenComponent/>
                 <HocRedComponent/>
             </div>
-
-
+            
+            
             <div className='row-container'>
                 <strong>RenderProps</strong>
                 <Hover render={(hovering) => (<RBlueComponent hovering={hovering}/>)}/>
                 <Hover render={(hovering) => (<RGreenComponent hovering={hovering}/>)}/>
                 <Hover render={(hovering) => (<RRedComponent hovering={hovering}/>)}/>
             </div>
-
+            
             <div className='row-container'>
                 <strong>Hooks</strong>
                 <HBlueComponent/>

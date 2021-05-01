@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
+import {BoxComponent} from "./BoxComponent";
 
-export class InhGreenComponent extends Component {
-
-    state = {hovering: false}
-    mouseOver = () => this.setState({hovering: true})
-    mouseOut = () => this.setState({hovering: false})
-
+export class InhGreenComponent extends BoxComponent {
+    
     render() {
         const {hovering} = this.state;
         return (
