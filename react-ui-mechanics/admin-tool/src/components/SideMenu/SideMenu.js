@@ -57,32 +57,39 @@ export class SideMenu extends React.Component {
 		);
 	}
 
+	isSideMenuSelected = (expectedPath) => {
+		const result = this.props.match.path === expectedPath;
+		return result;
+	}
+
 
 	generateNavlist = () => (
+
+
 		<div className='nav-list'>
 			<List>
-				<ListItem onClick={this.handleAdmin} button key='admin-page-item'>
+				<ListItem selected={this.isSideMenuSelected(routes.admin.path)} onClick={this.handleAdmin} button key='admin-page-item'>
 					<ListItemIcon><SupervisorAccountIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Admin Page'/>
 				</ListItem>
 
 
-				<ListItem onClick={this.handleChangeHistory} button key='change-history'>
+				<ListItem selected={this.isSideMenuSelected(routes.history.path)} onClick={this.handleChangeHistory} button key='change-history'>
 					<ListItemIcon><ChangeHistoryIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Change History'/>
 				</ListItem>
 
-				<ListItem onClick={this.handleDashboard} button key='dasboard'>
+				<ListItem selected={this.isSideMenuSelected(routes.dashboard.path)}  onClick={this.handleDashboard} button key='dasboard'>
 					<ListItemIcon><DashboardIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dashboard'/>
 				</ListItem>
 
 
-				<ListItem onClick={this.handleDummy} button key='dummy-page-3'>
+				<ListItem selected={this.isSideMenuSelected(routes.dummy.path)} onClick={this.handleDummy} button key='dummy-page-3'>
 					<ListItemIcon><PagesIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dummy 3'/>
 				</ListItem>
-				
+
 			</List>
 
 
