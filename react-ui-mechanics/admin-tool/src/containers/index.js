@@ -2,6 +2,7 @@ export * from './LandingPageContainer'
 export * from './AdminPageContainer'
 export * from './DummyPageContainer'
 export * from './HistoryPageContainer'
+export * from './FeedbackPageContainer'
 
 
 export * from './LoginPanelContainer'

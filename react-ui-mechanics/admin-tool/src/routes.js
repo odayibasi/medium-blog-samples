@@ -19,5 +19,9 @@ export const routes = {
 		path: "/dashboard",
 		title: "Dashboard"
 	},
+	feedback: {
+		path: "/feedback",
+		title: "Feedback"
+	},
 }
 

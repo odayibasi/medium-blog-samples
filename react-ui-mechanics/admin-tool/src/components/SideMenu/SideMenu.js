@@ -10,6 +10,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ChangeHistoryIcon from '@material-ui/icons/ChangeHistory';
+import FeedbackIcon from '@material-ui/icons/Feedback'
 import {routes} from "routes";
 import './SideMenu.scss'
 
@@ -43,6 +44,11 @@ export class SideMenu extends React.Component {
 	handleDashboard = () => {
 		this.props.history.push(routes.dashboard.path);
 	}
+
+	handleFeedback = () => {
+		this.props.history.push(routes.feedback.path);
+	}
+	
 
 
 	render() {
@@ -84,6 +90,10 @@ export class SideMenu extends React.Component {
 					<ListItemText className='list-text' primary='Dashboard'/>
 				</ListItem>
 
+				<ListItem selected={this.isSideMenuSelected(routes.feedback.path)}  onClick={this.handleFeedback} button key='feedback'>
+					<ListItemIcon><FeedbackIcon/></ListItemIcon>
+					<ListItemText className='list-text' primary='Feedback'/>
+				</ListItem>
 
 				<ListItem selected={this.isSideMenuSelected(routes.dummy.path)} onClick={this.handleDummy} button key='dummy-page-3'>
 					<ListItemIcon><PagesIcon/></ListItemIcon>
