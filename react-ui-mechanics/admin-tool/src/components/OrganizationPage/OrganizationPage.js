@@ -16,6 +16,7 @@ export class OrganizationPage extends React.Component {
 				<div className='left-side'><SideMenuContainer/></div>
 				<div className='right-side'>
 					<h1>Organization Page</h1>
+					
 				</div>
 			</div>
 		)
