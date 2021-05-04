@@ -17,6 +17,10 @@ export default class HeadComponent extends React.Component {
 
 	render() {
 
+
+		this.nodeMap = {}; //clear node arr; //Fast access
+		const {organization} = this.props.organization;
+
 		return (
 			<Breadcrumbs aria-label="breadcrumb">
 				<Link color="inherit" href="/" onClick={handleClick}>

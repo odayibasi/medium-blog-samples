@@ -10,7 +10,6 @@ import {Route, Switch} from "react-router-dom";
 import {routes} from 'routes';
 import './App.css';
 import {DashboardPageContainer} from "./containers/DashboardPageContainer";
-import {OrganizationPage} from "./components/OrganizationPage/OrganizationPage";
 
 class App extends React.Component {
 

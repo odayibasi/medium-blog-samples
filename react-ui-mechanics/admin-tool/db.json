@@ -8,6 +8,7 @@
   ],
   "organization": {
     "name": "organization",
+    "desc": "organization info",
     "children": [
       {
         "name": "sales",

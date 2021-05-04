@@ -11,12 +11,16 @@ export default class ContentComp extends React.Component {
 
 	render() {
 
+		const {selectedNode} = this.props.organization;
+		let name = selectedNode?.name;
+		let desc = selectedNode?.desc;
+
 
 		return (
 			<form className='organization-content-container' noValidate autoComplete="off">
 				<div>
-					<TextField id="standard-basic" label="Standard"/>
-					<TextField id="standard-multiline-flexible" label="Multiline" multiline rowsMax={4}/>
+					<TextField id="standard-basic"  value={name}/>
+					<TextField id="standard-multiline-flexible" variant="outlined" value={desc}  multiline rowsMax={4}/>
 					<Button>Accept</Button>
 				</div>
 			</form>
