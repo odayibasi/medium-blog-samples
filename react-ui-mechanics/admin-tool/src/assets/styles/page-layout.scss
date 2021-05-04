@@ -14,5 +14,7 @@ $sidebar-width:50px;
   .right-side {
     width: calc(100% -  #{$sidebar-width});
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }

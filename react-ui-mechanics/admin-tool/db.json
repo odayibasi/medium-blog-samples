@@ -6,6 +6,32 @@
       "password": "q123456"
     }
   ],
+  "organization": [
+    {
+      "name": "sales",
+      "desc": "sales op department",
+      "children": [
+        {
+          "name": "sales-group1",
+          "desc": "sales group1",
+          "children": [
+            {
+              "name": "onur",
+              "desc": "a dsadas ddsad"
+            }
+          ]
+        },
+        {
+          "name": "sales-group2",
+          "desc": "sales group1"
+        }
+      ]
+    },
+    {
+      "name": "engineering",
+      "desc": "engineering department"
+    }
+  ],
   "products": [
     {
       "name": "Ketcap",
