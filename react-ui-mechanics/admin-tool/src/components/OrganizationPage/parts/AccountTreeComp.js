@@ -26,7 +26,11 @@ export default class AccountTreeComp extends React.Component {
 
 		let vDOM = '';
 		if (node.children && node.children.length > 0) {
-			vDOM = node.children.map(child => this.generateTreeItem4(child));
+			vDOM = node.children.map(child => {
+					child.parent = node;
+					return this.generateTreeItem4(child)
+				}
+			);
 		}
 
 		return (

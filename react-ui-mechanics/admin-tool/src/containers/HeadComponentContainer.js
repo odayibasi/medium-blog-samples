@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => (
 	{}
 )
 
-export const HeadCompnentContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(HeadComponent));
+export const HeadComponentContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(HeadComponent));
