@@ -11,30 +11,32 @@ export default class AccountTreeComp extends React.Component {
 		super(props);
 	}
 
+	generateTreeItem4 = (node) => {
+
+		let vDOM = '';
+		if (node.children && node.children.length > 0) {
+			vDOM = node.children.map(child => this.generateTreeItem4(child));
+		}
+
+		const {name} = node;
+		return (
+			<TreeItem nodeId={name} label={name}>
+				{vDOM}
+			</TreeItem>
+		)
+	}
+
 	render() {
 
 		const {organization} = this.props.organization;
-
+		
 		return (
 			<TreeView
 				className='account-tree-container'
 				defaultCollapseIcon={<ExpandMoreIcon/>}
 				defaultExpandIcon={<ChevronRightIcon/>}
 			>
-				<TreeItem nodeId="1" label="Applications">
-					<TreeItem nodeId="2" label="Calendar"/>
-					<TreeItem nodeId="3" label="Chrome"/>
-					<TreeItem nodeId="4" label="Webstorm"/>
-				</TreeItem>
-				<TreeItem nodeId="5" label="Documents">
-					<TreeItem nodeId="10" label="OSS"/>
-					<TreeItem nodeId="6" label="Material-UI">
-						<TreeItem nodeId="7" label="src">
-							<TreeItem nodeId="8" label="index.js"/>
-							<TreeItem nodeId="9" label="tree-view.js"/>
-						</TreeItem>
-					</TreeItem>
-				</TreeItem>
+				{this.generateTreeItem4(organization)}
 			</TreeView>
 		);
 	}

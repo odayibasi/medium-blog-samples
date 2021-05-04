@@ -9,9 +9,9 @@ const initialState = {
 
 export default function organization(state = initialState, action) {
     switch (action.type) {
-        case ORGANIZATION.GET_USER_PENDING:
+        case ORGANIZATION.GET_ORGANIZATION_PENDING:
             return {...state, fetching: true, fetched: false, error: null};
-        case ORGANIZATION.GET_USER_FULFILLED:
+        case ORGANIZATION.GET_ORGANIZATION_FULFILLED:
             return {
                 ...state,
                 fetching: false,
@@ -19,7 +19,7 @@ export default function organization(state = initialState, action) {
                 error: null,
                 organization: {...action.payload.data}
             };
-        case ORGANIZATION.GET_USER_REJECTED:
+        case ORGANIZATION.GET_ORGANIZATION_REJECTED:
             return {...state, fetching: false, fetched: false, error: action.payload};
         default:
             return state
