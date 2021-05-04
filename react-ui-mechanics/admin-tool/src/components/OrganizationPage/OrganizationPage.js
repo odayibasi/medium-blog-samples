@@ -1,15 +1,17 @@
 import React from 'react';
-import {SideMenuContainer} from "containers";
+import {AccountTreeCompContainer, ContentCompContainer, HeadCompnentContainer, SideMenuContainer} from "containers";
 import './OrganizationPage.scss'
-import HeadComponent from "./parts/HeadComponent";
-import AccountTreeComp from "./parts/AccountTreeComp";
-import ContentComp from "./parts/ContentComp";
 
 
 export class OrganizationPage extends React.Component {
 
 	constructor(props) {
 		super(props);
+	}
+	
+	
+	componentDidMount() {
+		this.props.getOrganization();
 	}
 
 
@@ -19,11 +21,11 @@ export class OrganizationPage extends React.Component {
 				<div className='left-side'><SideMenuContainer/></div>
 				<div className='right-side'>
 					<div className='head-container'>
-						<HeadComponent/>
+						<HeadCompnentContainer/>
 					</div>
 					<div className='main-container'>
-						<div className='organization-tree-container'><AccountTreeComp/></div>
-						<div className='organization-content'><ContentComp/></div>
+						<div className='organization-tree-container'><AccountTreeCompContainer/></div>
+						<div className='organization-content'><ContentCompContainer/></div>
 					</div>
 				</div>
 			</div>

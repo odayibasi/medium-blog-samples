@@ -8,16 +8,28 @@ function handleClick(event) {
 	console.info('You clicked a breadcrumb.');
 }
 
-export default function HeadComponent() {
-	return (
-		<Breadcrumbs aria-label="breadcrumb">
-			<Link color="inherit" href="/" onClick={handleClick}>
-				Organization
-			</Link>
-			<Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
-				Level1
-			</Link>
-			<Typography color="textPrimary">Level1-Level1</Typography>
-		</Breadcrumbs>
-	);
+export default class HeadComponent extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+
+	render() {
+
+		return (
+			<Breadcrumbs aria-label="breadcrumb">
+				<Link color="inherit" href="/" onClick={handleClick}>
+					Organization
+				</Link>
+				<Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
+					Level1
+				</Link>
+				<Typography color="textPrimary">Level1-Level1</Typography>
+			</Breadcrumbs>
+		);
+
+	}
+
+
 }
