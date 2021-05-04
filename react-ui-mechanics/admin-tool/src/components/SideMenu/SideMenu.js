@@ -11,6 +11,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ChangeHistoryIcon from '@material-ui/icons/ChangeHistory';
 import FeedbackIcon from '@material-ui/icons/Feedback'
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import {routes} from "routes";
 import './SideMenu.scss'
 
@@ -48,7 +49,11 @@ export class SideMenu extends React.Component {
 	handleFeedback = () => {
 		this.props.history.push(routes.feedback.path);
 	}
-	
+
+
+	handleOrganization = () => {
+		this.props.history.push(routes.organization.path);
+	}
 
 
 	render() {
@@ -95,6 +100,9 @@ export class SideMenu extends React.Component {
 					<ListItemText className='list-text' primary='Feedback'/>
 				</ListItem>
 
+
+
+
 				<ListItem selected={this.isSideMenuSelected(routes.dummy.path)} onClick={this.handleDummy} button key='dummy-page-3'>
 					<ListItemIcon><PagesIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dummy 3'/>
@@ -104,6 +112,10 @@ export class SideMenu extends React.Component {
 
 
 			<List>
+				<ListItem onClick={this.handleOrganization} button key='logout-item'>
+					<ListItemIcon><AccountTreeIcon/></ListItemIcon>
+					<ListItemText className='list-text' primary='Organizaiton'/>
+				</ListItem>
 				<ListItem onClick={this.handleLogout} button key='logout-item'>
 					<ListItemIcon><ExitToAppIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Logout'/>

@@ -23,5 +23,9 @@ export const routes = {
 		path: "/feedback",
 		title: "Feedback"
 	},
+	organization: {
+		path: "/organization",
+		title: "Organization"
+	},
 }
 

@@ -3,19 +3,20 @@ import {
 	DummyPageContainer,
 	AdminPageContainer,
 	HistoryPageContainer,
-	FeedbackPageContainer
+	FeedbackPageContainer, OrganizationPageContainer
 } from 'containers';
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import {routes} from 'routes';
 import './App.css';
 import {DashboardPageContainer} from "./containers/DashboardPageContainer";
+import {OrganizationPage} from "./components/OrganizationPage/OrganizationPage";
 
 class App extends React.Component {
 
 
 	render() {
-		const {landing, admin, dummy,history,dashboard,feedback} = routes;
+		const {landing, admin, dummy,history,dashboard,feedback,organization} = routes;
 		return (
 			<div className="App">
 				<Switch>
@@ -25,6 +26,7 @@ class App extends React.Component {
 					<Route exact path={history.path}><HistoryPageContainer/></Route>
 					<Route exact path={dashboard.path}><DashboardPageContainer/></Route>
 					<Route exact path={feedback.path}><FeedbackPageContainer/></Route>
+					<Route exact path={organization.path}><OrganizationPageContainer/></Route>
 				</Switch>
 			</div>
 		);
