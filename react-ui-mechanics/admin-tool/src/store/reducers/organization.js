@@ -72,7 +72,7 @@ function updateNode(node, updatedNode) {
 		node.desc = updatedNode.desc;
 	} else {
 		node.children.forEach(el => {
-			updateNode(node, updatedNode)
+			updateNode(el, updatedNode)
 		})
 	}
 }
