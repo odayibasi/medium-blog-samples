@@ -9,19 +9,29 @@
   align-items: center;
 }
 
+
 .main-container {
   height: calc(100vh - 100px);
   width: 100%;
   background-color: lightcoral;
   display: flex;
-  
-  .organization-tree-container{
+
+  .organization-tree-container {
     height: 100%;
     width: 250px;
     background-color: lightgoldenrodyellow;
+
+    .account-tree-container {
+      .tree-item-row-container {
+        .MuiSvgIcon-root {
+          font-size: 20px;
+        }
+      }
+    }
+
   }
-  
-  .organization-content{
+
+  .organization-content {
     height: 100%;
     width: calc(100% - 250px);
     background-color: lightcyan;

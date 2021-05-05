@@ -1,5 +1,4 @@
 import {HISTORY} from "../constants/history";
-import {PRODUCTS} from "../constants/products";
 
 const initialState = {
 	history: [],
