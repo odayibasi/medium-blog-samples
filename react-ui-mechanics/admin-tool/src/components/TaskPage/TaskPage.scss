@@ -1,1 +1,23 @@
 @import 'assets/styles/page-layout.scss';
+
+.x-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 0px;
+    }
+
+  }
+}

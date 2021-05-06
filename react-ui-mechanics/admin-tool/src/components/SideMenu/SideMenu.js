@@ -121,7 +121,7 @@ export class SideMenu extends React.Component {
 				</ListItem>
 
 				<ListItem selected={this.isSideMenuSelected(routes.task.path)} onClick={this.handleTask}
-				          button key='list-selection'>
+				          button key='task-management'>
 					<ListItemIcon><AssignmentTurnedInIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Task Management'/>
 				</ListItem>
@@ -137,9 +137,9 @@ export class SideMenu extends React.Component {
 
 
 			<List>
-				<ListItem onClick={this.handleOrganization} button key='logout-item'>
+				<ListItem onClick={this.handleOrganization} button key='organization'>
 					<ListItemIcon><AccountTreeIcon/></ListItemIcon>
-					<ListItemText className='list-text' primary='Organizaiton'/>
+					<ListItemText className='list-text' primary='Organization'/>
 				</ListItem>
 				<ListItem onClick={this.handleLogout} button key='logout-item'>
 					<ListItemIcon><ExitToAppIcon/></ListItemIcon>
