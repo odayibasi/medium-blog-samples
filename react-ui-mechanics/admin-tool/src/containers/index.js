@@ -4,6 +4,9 @@ export * from './DummyPageContainer'
 export * from './HistoryPageContainer'
 export * from './FeedbackPageContainer'
 export * from './OrganizationPageContainer'
+export * from './DashboardPageContainer'
+export * from './ListSelectionPageContainer'
+
 
 
 export * from './LoginPanelContainer'

@@ -12,6 +12,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import ChangeHistoryIcon from '@material-ui/icons/ChangeHistory';
 import FeedbackIcon from '@material-ui/icons/Feedback'
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 import {routes} from "routes";
 import './SideMenu.scss'
 
@@ -55,6 +56,10 @@ export class SideMenu extends React.Component {
 		this.props.history.push(routes.organization.path);
 	}
 
+	handleListSelection = () => {
+		this.props.history.push(routes.listselection.path);
+	}
+
 
 	render() {
 		return (
@@ -79,31 +84,41 @@ export class SideMenu extends React.Component {
 
 		<div className='nav-list'>
 			<List>
-				<ListItem selected={this.isSideMenuSelected(routes.admin.path)} onClick={this.handleAdmin} button key='admin-page-item'>
+				<ListItem selected={this.isSideMenuSelected(routes.admin.path)} onClick={this.handleAdmin} button
+				          key='admin-page-item'>
 					<ListItemIcon><SupervisorAccountIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Admin Page'/>
 				</ListItem>
 
 
-				<ListItem selected={this.isSideMenuSelected(routes.history.path)} onClick={this.handleChangeHistory} button key='change-history'>
+				<ListItem selected={this.isSideMenuSelected(routes.history.path)} onClick={this.handleChangeHistory} button
+				          key='change-history'>
 					<ListItemIcon><ChangeHistoryIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Change History'/>
 				</ListItem>
 
-				<ListItem selected={this.isSideMenuSelected(routes.dashboard.path)}  onClick={this.handleDashboard} button key='dasboard'>
+				<ListItem selected={this.isSideMenuSelected(routes.dashboard.path)} onClick={this.handleDashboard} button
+				          key='dasboard'>
 					<ListItemIcon><DashboardIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dashboard'/>
 				</ListItem>
 
-				<ListItem selected={this.isSideMenuSelected(routes.feedback.path)}  onClick={this.handleFeedback} button key='feedback'>
+				<ListItem selected={this.isSideMenuSelected(routes.feedback.path)} onClick={this.handleFeedback} button
+				          key='feedback'>
 					<ListItemIcon><FeedbackIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Feedback'/>
 				</ListItem>
 
 
+				<ListItem selected={this.isSideMenuSelected(routes.listselection.path)} onClick={this.handleListSelection}
+				          button key='list-selection'>
+					<ListItemIcon><ListAltIcon/></ListItemIcon>
+					<ListItemText className='list-text' primary='List Selection'/>
+				</ListItem>
 
 
-				<ListItem selected={this.isSideMenuSelected(routes.dummy.path)} onClick={this.handleDummy} button key='dummy-page-3'>
+				<ListItem selected={this.isSideMenuSelected(routes.dummy.path)} onClick={this.handleDummy} button
+				          key='dummy-page-3'>
 					<ListItemIcon><PagesIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Dummy 3'/>
 				</ListItem>

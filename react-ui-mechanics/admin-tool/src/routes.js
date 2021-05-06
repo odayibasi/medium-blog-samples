@@ -27,5 +27,9 @@ export const routes = {
 		path: "/organization",
 		title: "Organization"
 	},
+	listselection: {
+		path: "/listselection",
+		title: "List Selection"
+	},
 }
 
