@@ -6,6 +6,7 @@ export * from './FeedbackPageContainer'
 export * from './OrganizationPageContainer'
 export * from './DashboardPageContainer'
 export * from './ListSelectionPageContainer'
+export * from './TaskPageContainer'
 
 
 

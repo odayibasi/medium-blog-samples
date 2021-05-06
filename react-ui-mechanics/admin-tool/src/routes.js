@@ -31,5 +31,9 @@ export const routes = {
 		path: "/listselection",
 		title: "List Selection"
 	},
+	task: {
+		path: "/task",
+		title: "Task"
+	},
 }
 
