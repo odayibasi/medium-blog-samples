@@ -7,6 +7,9 @@ export * from './OrganizationPageContainer'
 export * from './DashboardPageContainer'
 export * from './ListSelectionPageContainer'
 export * from './TaskPageContainer'
+export * from './GanttChartPageContainer'
+export * from './SchedulingPageContainer'
+
 
 
 

@@ -39,5 +39,9 @@ export const routes = {
 		path: "/scheduling",
 		title: "Scheduling"
 	},
+	gantt: {
+		path: "/gantt",
+		title: "Gantt Chart"
+	},
 }
 

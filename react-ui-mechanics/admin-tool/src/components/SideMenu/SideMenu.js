@@ -15,6 +15,7 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
 import {routes} from "routes";
 import './SideMenu.scss'
 
@@ -70,6 +71,9 @@ export class SideMenu extends React.Component {
 		this.props.history.push(routes.scheduling.path);
 	}
 
+	handleGantt = () => {
+		this.props.history.push(routes.gantt.path);
+	}
 
 	render() {
 		return (
@@ -118,7 +122,7 @@ export class SideMenu extends React.Component {
 					<ListItemIcon><FeedbackIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Feedback'/>
 				</ListItem>
-				
+
 				<ListItem selected={this.isSideMenuSelected(routes.listselection.path)} onClick={this.handleListSelection}
 				          button key='list-selection'>
 					<ListItemIcon><ListAltIcon/></ListItemIcon>
@@ -135,6 +139,12 @@ export class SideMenu extends React.Component {
 				          button key='scheduling'>
 					<ListItemIcon><InsertInvitationIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Scheduling'/>
+				</ListItem>
+
+				<ListItem selected={this.isSideMenuSelected(routes.gantt.path)} onClick={this.handleGantt}
+				          button key='gantt'>
+					<ListItemIcon><AcUnitIcon/></ListItemIcon>
+					<ListItemText className='list-text' primary='Gantt'/>
 				</ListItem>
 
 
