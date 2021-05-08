@@ -51,7 +51,7 @@ export class AdminPage extends React.Component {
 				<div className='left-side'><SideMenuContainer/></div>
 				<div className='right-side'>
 					<h1>Admin Page</h1>
-					<button onClick={this.handleNewProduct}>New Product</button>
+					<div><button onClick={this.handleNewProduct}>New Product</button></div>
 					<ProductTableContainer/>
 					<ProductModal
 						isOpen={this.state.isModalOpen}

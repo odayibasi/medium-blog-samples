@@ -35,5 +35,9 @@ export const routes = {
 		path: "/task",
 		title: "Task"
 	},
+	scheduling: {
+		path: "/scheduling",
+		title: "Scheduling"
+	},
 }
 

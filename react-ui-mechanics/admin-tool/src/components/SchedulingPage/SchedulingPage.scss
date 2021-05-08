@@ -1,0 +1,7 @@
+@import 'assets/styles/page-layout.scss';
+
+.schedule-container{
+  overflow-y: auto;
+  height: calc(100% - 150px);
+  margin-right: 15px;
+}

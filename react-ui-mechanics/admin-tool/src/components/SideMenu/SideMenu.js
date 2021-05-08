@@ -14,6 +14,7 @@ import FeedbackIcon from '@material-ui/icons/Feedback'
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
 import {routes} from "routes";
 import './SideMenu.scss'
 
@@ -63,6 +64,10 @@ export class SideMenu extends React.Component {
 
 	handleTask = () => {
 		this.props.history.push(routes.task.path);
+	}
+
+	handleSchedule = () => {
+		this.props.history.push(routes.scheduling.path);
 	}
 
 
@@ -124,6 +129,12 @@ export class SideMenu extends React.Component {
 				          button key='task-management'>
 					<ListItemIcon><AssignmentTurnedInIcon/></ListItemIcon>
 					<ListItemText className='list-text' primary='Task Management'/>
+				</ListItem>
+
+				<ListItem selected={this.isSideMenuSelected(routes.scheduling.path)} onClick={this.handleSchedule}
+				          button key='scheduling'>
+					<ListItemIcon><InsertInvitationIcon/></ListItemIcon>
+					<ListItemText className='list-text' primary='Scheduling'/>
 				</ListItem>
 
 
