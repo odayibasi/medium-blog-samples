@@ -66,7 +66,7 @@
       "updatedDate": 1618903528913
     },
     {
-      "name": "Pasta",
+      "name": "Pasta3",
       "calories": 262,
       "fat": "18",
       "carbs": "26",
@@ -74,18 +74,7 @@
       "price": "50",
       "id": 3,
       "creationDate": 1618815892370,
-      "updatedDate": 1618903541879
-    },
-    {
-      "name": "Kek",
-      "calories": "309",
-      "fat": 3.7,
-      "carbs": "68",
-      "protein": 4.3,
-      "price": "20",
-      "id": 4,
-      "creationDate": 1618815892370,
-      "updatedDate": 1619705590155
+      "updatedDate": 1623674142842
     },
     {
       "name": "Ekmek",
@@ -148,9 +137,9 @@
       "action": "Update"
     },
     {
-      "productId": 4,
+      "productId": 3,
       "username": "onur",
-      "updatedDate": 1619705590155,
+      "updatedDate": 1623674142842,
       "action": "Updated",
       "id": 3
     }
