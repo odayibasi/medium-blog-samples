@@ -28,7 +28,6 @@ function ExchangeRates() {
 	));
 }
 
-
 const EXCHANGE_RATES = gql`
   query GetExchangeRates {
     rates(currency: "USD") {
@@ -37,7 +36,6 @@ const EXCHANGE_RATES = gql`
     }
   }
 `;
-
 
 function App() {
 	return (
