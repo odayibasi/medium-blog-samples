@@ -9,7 +9,7 @@ export class GreenComponent extends Component {
     render() {
         const {hovering} = this.state;
         return (
-            <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}
+            <div data-testid='default-green' onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}
                  className='box' style={{backgroundColor: 'green'}}>
                 {hovering && <span>GREEN</span>}
             </div>
