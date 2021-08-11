@@ -1,0 +1,10 @@
+@import './functions';
+
+$dark: (
+        borderDark:      color(tronLightBlue),
+        borderLight:     color(tronDarkBlue),
+        textDark:        color(white),
+        textLight:       color(black),
+        backgroundDark:  color(tronLightBlue),
+        backgroundLight: color(tronDarkBlue)
+);

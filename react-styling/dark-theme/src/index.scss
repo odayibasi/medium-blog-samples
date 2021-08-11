@@ -1,0 +1,22 @@
+@import 'colors.scss';
+
+html {
+  @include generateThemeVariables;
+  height: 100%;
+}
+
+body {
+  @include theme(background-color, backgroundDark);
+}
+
+.textFieldArea {
+h4 {
+  @include theme(color, textLight);
+  margin-bottom: 6px;
+}
+label {
+  @include theme(color, textLight);
+  display: block;
+  margin-top: 6px;
+}
+}

@@ -1,0 +1,13 @@
+@import '../colors.scss';
+
+.myButton {
+  @include theme(border, borderDark, 1px solid);
+  @include theme(background-color, backgroundLight);
+  @include theme(color, textDark);
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.currTheme {
+  @include theme(color, textLight);
+}

@@ -3,7 +3,7 @@ import {withHover} from "./WithHover";
 
 function BlueComponent(props) {
     return (
-        <div className='box' style={{backgroundColor: 'blue'}}>
+        <div data-testid='hoc-blue' className='box' style={{backgroundColor: 'blue'}}>
             {props.hovering && <span>BLUE</span>}
         </div>
     );
