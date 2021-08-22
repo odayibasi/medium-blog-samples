@@ -1,0 +1,16 @@
+:root {
+  --font-color: #000;
+  --link-color: #1C75B9;
+  --link-white-color: #fff;
+  --bg-color: red;
+}
+
+[data-theme="dark"] {
+  --font-color: #c1bfbd;
+  --link-color: #0a86da;
+  --link-white-color: #c1bfbd;
+  --bg-color: blue;
+}
+
+
+
