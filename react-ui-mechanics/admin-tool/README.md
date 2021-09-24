@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Download JSON Server And Run
+
+In the project directory, you can run:
+
+### npm install -g json-server
+
+Above code download json server to global
+
+### json-server --watch db.json --port 3004
+
+And run json-server for fake backend
+
 ## Available Scripts
 
 In the project directory, you can run:
