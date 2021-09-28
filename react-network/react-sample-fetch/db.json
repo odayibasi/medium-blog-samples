@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "onur",
+      "age": "41",
+      "meetings": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "username": "ali",
+      "age": "22",
+      "meetings": []
+    },
+    {
+      "id": 3,
+      "username": "ahmet",
+      "age": "45",
+      "meetings": [
+        2,
+        3
+      ]
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "name": "meeting1",
+      "age": "41"
+    },
+    {
+      "id": 2,
+      "username": "meeting2"
+    },
+    {
+      "id": 3,
+      "username": "meeting3"
+    }
+  ]
+}
