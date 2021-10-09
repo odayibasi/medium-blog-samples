@@ -25,10 +25,11 @@ export class UserList extends Component {
 			.then(data => this.setState({userList: data}, () => {
 				if (Array.isArray(data)) {
 					data.filter(el => el.age > 40).forEach(el => {
-						fetch(`http://localhost:3004/users/${el.id}`)
-							.then(response => response.json())
-							.then(data => console.log('meetings', data.meetings))
-
+						el.meetings.forEach(mtId => {
+							fetch(`http://localhost:3004/meetings/${mtId}`)
+								.then(response => response.json())
+								.then(data => console.log('meetings', data.name))
+						})
 					})
 				}
 			}))

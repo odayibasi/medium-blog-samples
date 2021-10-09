@@ -28,16 +28,15 @@
   "meetings": [
     {
       "id": 1,
-      "name": "meeting1",
-      "age": "41"
+      "name": "meeting1"
     },
     {
       "id": 2,
-      "username": "meeting2"
+      "name": "meeting2"
     },
     {
       "id": 3,
-      "username": "meeting3"
+      "name": "meeting3"
     }
   ]
 }
