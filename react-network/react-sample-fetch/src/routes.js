@@ -5,7 +5,7 @@ export const routes = {
 	},
 	users: {
 		path: '/users',
-		title: 'USERS'
+		title: 'Users'
 	}
 
 

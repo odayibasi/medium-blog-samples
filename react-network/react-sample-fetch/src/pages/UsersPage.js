@@ -39,7 +39,7 @@ class UsersPageUI extends Component {
 
 	fetchUsers = (userText) => {
 		this.setState({status: UISTATE.fetching})
-		fetch(`http://localhost:3004/users/`)
+		fetch(`http://localhost:3004/users?q=${userText}`)
 			.then(response => response.json())
 			.then(data => this.setState({userList: data, status: UISTATE.fetched}))
 			.catch(error => this.setState({status: UISTATE.error, errorMsg: error}));
@@ -72,12 +72,12 @@ class UsersPageUI extends Component {
 		const {userList, status} = this.state;
 		const {match} = this.props;
 		const userVDOM = userList.map(el => <div onClick={() => this.handleUsersClick(el.username)}>
-			<b>{el.username}:</b>{el.age}</div>)
+			<b>{el.username}:</b>Age:{el.age}</div>)
 
 		const childPath = `${match.path}/:username`;
 		return (
 			<div>
-				{routes.users.title};
+				{routes.users.title}
 				<input type='text' onChange={this.handleOnChange}/>
 				{status === UISTATE.fetched && <div>{userVDOM}</div>}
 				{status === UISTATE.fetching && <div>Loading...</div>}
