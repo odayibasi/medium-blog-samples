@@ -1,29 +1,32 @@
 import './App.css';
-import {Theme, Todo, Post} from "./components/useStateUsage";
+import React from "react";
+
+import {Post, Theme, Todo} from "./components/useStateUsage";
 import {
+    CharLimit,
     Counter,
     Counter2,
     Counter3,
     Counter4,
+    PostFetching,
     Profile,
     Profile2,
-    CharLimit,
     Wait,
-    PostFetching,
     WindowDimensionCalculator,
 } from "./components/useEffectUsage";
 
-import {
-    ThemeContextSample,
-} from "./components/useContextUsage";
+import {ThemeContextSample,} from "./components/useContextUsage";
 
 
-import React from "react";
 import {CounterWorkReducer} from "./components/useReducerUsage";
+
+
+import {FancyInputWithFocusButton, TextInputWithFocusButton} from "./components/useRefUsage";
+
 
 const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4',
     'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching',
-    'WindowDimensionCalculator', 'ThemeContextSample', 'CounterWorkReducer'];
+    'WindowDimensionCalculator', 'ThemeContextSample', 'CounterWorkReducer', 'Focus2Comp', "Focus2FancyComp"];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -50,6 +53,8 @@ function App() {
             {comp === 'WindowDimensionCalculator' && <WindowDimensionCalculator/>}
             {comp === 'ThemeContextSample' && <ThemeContextSample/>}
             {comp === 'CounterWorkReducer' && <CounterWorkReducer/>}
+            {comp === 'Focus2Comp' && <TextInputWithFocusButton/>}
+            {comp === 'Focus2FancyComp' && <FancyInputWithFocusButton/>}
 
 
         </div>
