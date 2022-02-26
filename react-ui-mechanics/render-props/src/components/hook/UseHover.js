@@ -9,5 +9,8 @@ export function useHover () {
         onMouseOver: mouseOver,
         onMouseOut: mouseOut
     }
+    
+    // Show a label in DevTools next to this Hook
+    React.useDebugValue(hovering ? 'Hovering OK' : 'Hovering Not OK');
     return [hovering, handlers]
 }
