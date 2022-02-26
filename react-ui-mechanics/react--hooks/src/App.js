@@ -22,11 +22,12 @@ import {CounterWorkReducer} from "./components/useReducerUsage";
 
 
 import {FancyInputWithFocusButton, TextInputWithFocusButton} from "./components/useRefUsage";
+import {UseLayoutEffectSample} from "./components/useLayoutEffectUsage";
 
 
 const components = ['Theme', 'Todo', 'Post', 'Counter', 'Counter2', 'Counter3', 'Counter4',
     'Profile', 'Profile2', 'CharLimit', 'Wait', 'PostFetching',
-    'WindowDimensionCalculator', 'ThemeContextSample', 'CounterWorkReducer', 'Focus2Comp', "Focus2FancyComp"];
+    'WindowDimensionCalculator', 'ThemeContextSample', 'CounterWorkReducer', 'Focus2Comp', "Focus2FancyComp", "UseLayoutEffectSample"];
 const compsVDOM = components.map(el => (<option key={el}>{el}</option>))
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             {comp === 'CounterWorkReducer' && <CounterWorkReducer/>}
             {comp === 'Focus2Comp' && <TextInputWithFocusButton/>}
             {comp === 'Focus2FancyComp' && <FancyInputWithFocusButton/>}
+            {comp === 'UseLayoutEffectSample' && <UseLayoutEffectSample/>}
 
 
         </div>
